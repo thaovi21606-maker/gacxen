@@ -1,0 +1,777 @@
+/* --- TRANG QUẢN LÝ TÀI KHOẢN --- */
+.account-bg {
+    background-color: #f4f4f4;
+    padding: 30px 0;
+}
+
+.account-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Sidebar */
+.account-sidebar {
+    width: 260px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.user-summary {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Tìm và thêm dòng overflow: hidden; vào class có sẵn này */
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    background: #e0e0e0;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* QUAN TRỌNG: Cắt hết những phần ảnh vuông lòi ra ngoài vòng tròn */
+}
+
+/* Thêm đoạn mới này ngay bên dưới để ép ảnh vừa khít khung */
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Chống méo ảnh, tự động zoom và cắt cho xịn như Facebook */
+}
+
+.user-level {
+    background: #ccc;
+    color: #fff;
+    display: inline-block;
+    padding: 3px 15px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-points { font-size: 14px; color: #555; }
+.user-hint { font-size: 12px; color: #888; margin-top: 5px;}
+
+.account-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-menu > ul > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    border-left: 3px solid transparent;
+}
+
+.account-menu i { margin-right: 10px; width: 15px; text-align: center; }
+.account-menu .badge {
+    background: #f65385; color: white;
+    border-radius: 50%; padding: 2px 6px;
+    font-size: 11px; margin-left: 5px;
+}
+
+.submenu {
+    list-style: none;
+    padding-left: 45px;
+    background: #fafafa;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 0;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.submenu li.active a, .submenu li a:hover {
+    color: #f65385;
+    font-weight: bold;
+}
+
+/* Content Area */
+.account-content {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    padding: 30px;
+    min-height: 500px;
+}
+
+.acc-tab { display: none; }
+.acc-tab.active { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-title {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.tier-tabs .tier.active { 
+    border-top: 3px solid #f65385 !important; 
+    color: #f65385 !important;
+    font-weight: bold;
+}
+
+/* Forms */
+.acc-form { max-width: 600px; }
+.form-row {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.form-row label {
+    width: 180px;
+    font-size: 14px;
+    color: #555;
+}
+.form-row label span { color: pink; }
+.form-row input[type="text"], .form-row input[type="email"], .form-row input[type="password"], .form-row select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+.input-with-action {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.input-with-action input { width: 100%; }
+.input-with-action a { color: #2196F3; text-decoration: none; font-size: 14px; white-space: nowrap; }
+
+.radio-group label { width: auto; margin-right: 20px; font-weight: normal; }
+.dob-group { display: flex; gap: 10px; flex: 1; }
+
+.btn-save {
+    background: #f65385; /* Đỏ giống Fahasa */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.form-actions { margin-top: 20px; margin-left: 180px; }
+.address-actions { display: flex; justify-content: space-between; align-items: center; }
+.btn-cancel { color: #2196F3; text-decoration: none; }
+
+/* Thống kê & Ưu đãi */
+.stats-grid { display: flex; gap: 20px; }
+.stat-box { flex: 1; border: 1px solid #f65385; border-radius: 8px; padding: 20px; }
+.stat-inner { display: flex; color: #f65385; justify-content: space-between; margin-top: 15px; }
+.stat-inner p { color: #666; font-size: 14px; margin: 0; }
+.stat-inner strong { color: #f65385; font-size: 18px; }
+
+.tier-tabs { display: flex; margin-bottom: 20px; }
+.tier-tabs .tier { padding: 10px 20px; background: #eee; cursor: pointer; color: #555; }
+.tier-tabs .tier.active { background: #fff; border-top: 3px solid #f65385; box-shadow: 0 -2px 5px rgba(0,0,0,0.05); }
+/* --- Thay thế CSS cũ của tier-content bằng đoạn này --- */
+.tier-content-wrapper {
+    position: relative;
+}
+.tier-tabs .tier:hover {
+    color: #f65385;
+}
+.tier-content {
+    display: none; /* Ẩn mặc định */
+    padding: 20px; 
+    background: #fafafa; 
+    border: 1px solid #eee; 
+}
+
+.tier-content.active {
+    display: block; /* Hiện khi có class active */
+    animation: fadeIn 0.3s ease;
+}
+/* Voucher */
+/* --- LÀM ĐẸP VÍ VOUCHER --- */
+
+.voucher-tabs {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
+.voucher-tabs span {
+    padding: 10px 20px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 500;
+}
+/* Chỉnh màu tab voucher theo tone hồng của bạn */
+.voucher-tabs span.active {
+    border-bottom: 2px solid #f65385;
+    color: #f65385;
+    font-weight: bold;
+    margin-bottom: -2px;
+}
+
+.voucher-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.voucher-card {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: box-shadow 0.3s;
+}
+.voucher-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Cột xanh bên trái */
+.v-left {
+    background: #34A853; /* Xanh lá chuẩn Google/Fahasa */
+    color: white;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border-right: 2px dashed #fff; /* Hiệu ứng xé vé */
+}
+
+/* Nội dung bên phải */
+.v-right {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.v-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+.v-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.3;
+    padding-right: 10px;
+}
+.v-detail {
+    color: #2f80ed;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.v-detail:hover { text-decoration: underline; }
+
+.v-right p {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+    flex-grow: 1; /* Đẩy phần code xuống dưới cùng */
+}
+
+/* Khung chứa mã code */
+.v-code-box {
+    display: inline-block;
+    background: #f2f2f2;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    width: fit-content;
+}
+.v-code-box i {
+    color: #888;
+    margin-right: 5px;
+}
+
+/* Phần ngày tháng & Nút copy */
+.v-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.v-date {
+    font-size: 12px;
+    color: #2f80ed; /* Màu xanh dương giống ảnh mẫu */
+}
+
+.btn-copy {
+    background: #2f80ed;
+    color: white;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-copy:hover {
+    background: #1b65c9;
+}
+.btn-copy.copied {
+    background: #34A853; /* Đổi sang xanh lá khi copy thành công */
+}
+
+/* --- BỔ SUNG CHO FORM BÁO LỖI TÀI KHOẢN --- */
+.input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper input, 
+.input-wrapper select {
+    width: 100%;
+}
+
+.error-message {
+    color: #f65385;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* Ẩn đi, JS sẽ gọi lên khi có lỗi */
+    font-weight: 500;
+}
+#tab-offers .sub-title {
+    color: #f65385 !important;
+    margin-top: 15px !important; /* Dùng !important để đè lên margin-top: 30px cũ trong HTML */
+    margin-bottom: 15px;
+}
+/* --- Ẩn/Hiện nội dung các tab bên trong Ví Voucher --- */
+.v-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.v-tab-content.active {
+    display: block;
+}
+/* --- FORMAT CHO MENU SAU KHI ĐÃ ĐƯA RA NGOÀI (PHẲNG) --- */
+.account-menu > ul > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: #555;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* Hiệu ứng khi hover hoặc khi đang click (active) chuyển màu hồng */
+.account-menu > ul > li.active > a, 
+.account-menu > ul > li > a:hover {
+    color: #f65385 !important;
+    font-weight: 700;
+    background-color: #fff9fa; /* Thêm tí nền hồng nhạt cho nổi bật */
+    border-left: 3px solid #f65385; /* Vạch hồng bên trái */
+}
+
+/* Đẩy icon cách chữ một chút cho đẹp */
+.account-menu i { 
+    margin-right: 12px; 
+    width: 20px; 
+    text-align: center;
+    font-size: 16px;
+}
+/* --- FORMAT CHO TAB THÔNG BÁO --- */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.notify-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.notify-item:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    border-color: #ddd;
+}
+
+/* Highlight cho thông báo chưa đọc */
+.notify-item.unread {
+    background: #fff9fa;
+    border-left: 3px solid #f65385;
+}
+
+.notify-icon {
+    width: 45px;
+    height: 45px;
+    background: #f65385; /* Màu hồng mặc định */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.notify-content {
+    flex: 1;
+}
+
+.notify-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.notify-content p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.notify-time {
+    font-size: 11px;
+    color: #999;
+}
+
+/* thanh tim khiem*/
+/* ===== SIDEBAR SEARCH ===== */
+
+.search-sidebar{
+    position: fixed;
+
+    top: 0;
+    left: -320px;
+
+    width: 320px;
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 9999;
+
+    transition: left 0.3s ease;
+
+    overflow-y: auto;
+
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.search-sidebar.active{
+    left: 0;
+}
+
+/* overlay */
+
+.search-overlay{
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 9998;
+}
+
+.search-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* header */
+
+.search-header{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+/* form */
+
+#sidebarSearchForm{
+    flex: 1;
+
+    position: relative;
+}
+
+/* input */
+
+#searchInput{
+    width: 100%;
+
+    height: 42px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 30px;
+
+    padding: 0 45px 0 15px;
+
+    outline: none;
+}
+
+
+/* close */
+
+.close-btn{
+    font-size: 20px;
+
+    cursor: pointer;
+
+    color: #333;
+}
+
+/* menu */
+
+.search-menu{
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.search-menu li a{
+    display: block;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+
+    text-decoration: none;
+
+    color: #333;
+}
+
+.search-menu li a:hover{
+    background: #f5f5f5;
+} 
+
+
+/* =======================================================
+   HỆ THỐNG RESPONSIVE CHO TRANG TÀI KHOẢN (MOBILE & TABLET)
+======================================================= */
+
+/* ---------------------------------------------------
+   1. TABLET (Kích thước màn hình dưới 992px)
+--------------------------------------------------- */
+@media screen and (max-width: 992px) {
+    .account-layout {
+        gap: 15px; /* Thu hẹp khoảng cách giữa menu và nội dung */
+    }
+    .account-sidebar {
+        width: 220px; /* Bóp nhỏ menu trái một chút */
+    }
+    .account-content {
+        padding: 20px;
+    }
+    .voucher-grid {
+        grid-template-columns: 1fr; /* Xuống 1 cột voucher để không bị ép chữ */
+    }
+}
+
+/* ---------------------------------------------------
+   2. MOBILE & TABLET DỌC (Kích thước màn hình dưới 768px)
+--------------------------------------------------- */
+@media screen and (max-width: 768px) {
+    /* Đẩy Sidebar (Menu) lên trên, Content (Nội dung) xuống dưới */
+    .account-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .account-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Biến Menu dọc thành thanh trượt ngang trên Mobile (Giống Shopee/Tiki) */
+    /* TÌM VÀ THAY THẾ KHỐI ACCOUNT MENU NÀY TRONG PHẦN @media (max-width: 768px) */
+    
+    .account-menu > ul {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        border-top: 1px solid #eee;
+        align-items: stretch; /* Ép tất cả các tab phải cao bằng nhau */
+    }
+    
+    .account-menu > ul::-webkit-scrollbar {
+        height: 3px;
+    }
+    .account-menu > ul::-webkit-scrollbar-thumb {
+        background: #ffb3c1;
+        border-radius: 10px;
+    }
+
+    /* Thêm thẻ li thành flex để nhận chiều cao */
+    .account-menu > ul > li {
+        display: flex;
+    }
+
+    .account-menu > ul > li > a {
+        display: flex; /* Dùng flex để khóa chặt icon và chữ */
+        align-items: center; /* Căn giữa hoàn hảo theo chiều dọc */
+        justify-content: center;
+        padding: 12px 15px;
+        border-left: none; 
+        border-bottom: 3px solid transparent; 
+        box-sizing: border-box;
+        height: 100%; /* Bắt buộc lấp đầy khoảng trống */
+    }
+    
+    .account-menu > ul > li.active > a, 
+    .account-menu > ul > li > a:hover {
+        border-left: none !important;
+        border-bottom: 3px solid #f65385 !important;
+    }
+    /* Ép ô Đăng Xuất thẳng hàng trên Mobile, triệt tiêu lệnh margin và display block trong HTML */
+    .account-menu > ul > li:last-child {
+        margin-top: 0 !important; 
+        border-top: none !important; 
+    }
+    
+    #btnRealLogout {
+        display: flex !important; /* Dùng !important để đè lại lệnh display: block trong thẻ HTML */
+    }
+
+    /* FIX LỖI FORM NHẬP LIỆU: Đưa Tiêu đề (Label) lên trên Ô nhập liệu (Input) */
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-row label {
+        width: 100%;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .form-row input[type="text"], 
+    .form-row input[type="email"], 
+    .form-row input[type="password"], 
+    .form-row select,
+    .input-with-action {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* FIX VỊ TRÍ NÚT LƯU & HỦY */
+    .form-actions {
+        margin-left: 0; /* Gỡ bỏ lề trái 180px trên Desktop */
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .btn-save {
+        width: 100%; /* Nút lưu dàn ngang full màn hình cho dễ bấm */
+        text-align: center;
+    }
+    
+    .address-actions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    /* Khối thống kê (Điểm, Đơn hàng) chuyển thành cột dọc */
+    .stats-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Các thanh Tabs (Ví Voucher, Hạng thành viên) cho phép vuốt ngang */
+    .voucher-tabs, .tier-tabs {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+    .voucher-tabs::-webkit-scrollbar, .tier-tabs::-webkit-scrollbar {
+        height: 2px;
+    }
+
+    /* Giữ 3 ô Ngày/Tháng/Năm nằm ngang, tự chia đều tỷ lệ */
+    .dob-group {
+        width: 100%;
+    }
+    .dob-group select {
+        flex: 1; 
+    }
+}
+
+/* ---------------------------------------------------
+   3. ĐIỆN THOẠI NHỎ (Kích thước màn hình dưới 480px)
+--------------------------------------------------- */
+@media screen and (max-width: 480px) {
+    .account-content {
+        padding: 15px; /* Thu hẹp lề để có thêm không gian đọc */
+    }
+
+    /* FIX VOUCHER: Tách khối màu xanh và thông tin thành Trên/Dưới thay vì Trái/Phải */
+    .voucher-card {
+        flex-direction: column; 
+    }
+    
+    .v-left {
+        width: 100%;
+        height: 50px;
+        border-right: none;
+        border-bottom: 2px dashed #fff; /* Chuyển rãnh xé vé xuống cạnh dưới */
+        font-size: 24px;
+    }
+    
+    .v-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .btn-copy {
+        width: 100%;
+        text-align: center;
+    }
+}

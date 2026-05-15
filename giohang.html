@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_3gtdnyt.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { background-color: #f7f8fa; }
+
+        /* Làm đậm và to đề mục */
+        h2 { font-size: 28px !important; font-weight: bold !important; color: #333; margin-top: 30px; margin-bottom: 20px;}
+        h3 { font-size: 20px !important; font-weight: bold !important; color: #333; margin-bottom: 20px; border-left: 5px solid #ff4d6d; padding-left: 15px;}
+        h4 { font-size: 16px !important; font-weight: bold !important; color: #555; margin-bottom: 12px; margin-top: 20px;}
+
+        .cart-wrapper { display: flex; gap: 30px; margin-top: 20px; align-items: flex-start; margin-bottom: 50px;}
+        .cart-main { flex: 2; }
+        .cart-box { background: #fff; border-radius: 15px; padding: 25px; margin-bottom: 25px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);}
+
+        .cart-table-header { display: flex; font-weight: bold; color: #888; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-size: 14px; text-transform: uppercase;}
+        .col-sp { flex: 3; } .col-dg, .col-sl, .col-tt { flex: 1; text-align: center; }
+
+        .cart-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #f5f5f5; }
+        .cart-item img { width: 70px; height: 90px; object-fit: cover; border-radius: 8px; margin-right: 15px; }
+        .item-info { flex: 3; display: flex; align-items: center; }
+        
+        /* Tên sản phẩm in đậm */
+        .item-name { font-weight: bold; color: #333; font-size: 16px; text-decoration: none; transition: 0.3s;}
+        .item-name:hover { color: #ff4d6d; }
+        .item-price { flex: 1; text-align: center; color: #ff4d6d; font-weight: bold; font-size: 15px;}
+        .item-total { flex: 1; text-align: center; color: #ff4d6d; font-weight: bold; font-size: 18px;}
+        
+        .qty-box { flex: 1; display: flex; justify-content: center; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; width: fit-content; margin: 0 auto;}
+        .qty-box button { padding: 5px 12px; border: none; background: #f8f9fa; cursor: pointer; font-weight: bold;}
+        .qty-box input { width: 35px; text-align: center; border: none; border-left: 1px solid #ddd; border-right: 1px solid #ddd; outline: none; font-weight: bold;}
+        .btn-remove { background: none; border: none; color: #ccc; font-size: 16px; cursor: pointer; transition: 0.3s; margin-left: 15px;}
+        .btn-remove:hover { color: #ff4d6d; transform: scale(1.2); }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #555; font-size: 14px;}
+        .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; outline: none; transition: 0.3s; box-sizing: border-box; background: #fafafa;}
+        .form-group input:focus, .form-group textarea:focus { border-color: #ff4d6d; background: #fff;}
+        .error-msg { color: #e74c3c; font-size: 12px; margin-top: 5px; display: none; font-weight: bold;}
+
+        .cart-summary { flex: 1; position: sticky; top: 100px; }
+        .summary-box { background: #fff; border-radius: 15px; padding: 25px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);}
+        
+        .sum-row { display: flex; justify-content: space-between; margin-bottom: 12px; color: #666; font-size: 15px; font-weight: bold;}
+        .sum-total { border-top: 2px dashed #eee; padding-top: 15px; margin-top: 15px; font-size: 22px; font-weight: bold; color: #ff4d6d; display: flex; justify-content: space-between;}
+
+        .btn-checkout { width: 100%; background: linear-gradient(135deg, #ff4d6d, #f65385); color: white; border: none; padding: 18px; border-radius: 35px; font-weight: bold; cursor: pointer; margin-top: 25px; transition: 0.3s; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3); text-transform: uppercase; font-size: 15px;}
+        .btn-checkout:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4); }
+
+        /* THU NHỎ LOGO PHƯƠNG THỨC THANH TOÁN VÀ VẬN CHUYỂN */
+        .ship-opt, .pay-opt { 
+            border: 1px solid #ddd; 
+            padding: 10px 15px; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            cursor: pointer; 
+            margin-bottom: 12px; 
+            transition: all 0.3s;
+            background: #fff;
+        }
+        .ship-opt:hover, .pay-opt:hover { border-color: #ff4d6d; }
+        .ship-opt.opt-selected, .pay-opt.opt-selected { border: 2px solid #ff4d6d; background: #fff9fa; }
+        .ship-opt input, .pay-opt input { accent-color: #ff4d6d; width: 18px; height: 18px; cursor: pointer;}
+        
+        .brand-logo { height: 22px; width: auto; max-width: 65px; object-fit: contain; }
+        .brand-info { display: flex; flex-direction: column; }
+        .brand-name { font-weight: bold; color: #333; font-size: 13px; text-transform: uppercase;}
+        .brand-desc { font-size: 12px; color: #666; margin-top: 2px; font-weight: bold;}
+
+        .voucher-box { display: flex; gap: 10px; margin-bottom: 5px;}
+        .voucher-box input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-weight: bold; text-transform: uppercase;}
+        .voucher-box input:focus { border-color: #ff4d6d; }
+        .voucher-box button { background: #333; color: white; border: none; padding: 0 20px; border-radius: 8px; cursor: pointer; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div id="searchOverlay" class="search-overlay"></div>
+    <div id="searchSidebar" class="search-sidebar">
+      <div class="search-header">
+
+    <form id="sidebarSearchForm">
+
+        <input type="text"
+        id="searchInput"
+        placeholder="Tìm kiếm sản phẩm"
+        autocomplete="off">
+
+        <div id="searchSuggestions"
+        class="search-suggestions"></div>
+
+    </form>
+
+    <span class="close-btn"
+    onclick="closeSearch()">✕</span>
+
+</div>
+        <ul class="search-menu">
+            <li><a href="category-tatcasanpham.html?category=kinhte">Sách kinh tế - tài chính</a></li>
+            <li><a href="category-tatcasanpham.html?category=vanhoc">Sách văn học</a></li>
+            <li><a href="category-tatcasanpham.html?category=tamly">Sách tâm lý - kỹ năng</a></li>
+            <li><a href="category-tatcasanpham.html?category=khoahoc">Sách khoa học - giáo dục</a></li>
+        </ul>
+    </div>
+
+    <div class="top-bar">
+        <div class="marquee-container">
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </div>
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-main">
+            <div class="logo"><a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo"></a></div>
+            <div class="search-bar">
+                <form id="searchForm" action="sanpham.html" method="GET">
+                   <input type="text" onclick="openSearch()" readonly placeholder="Cần sách gì tìm ở đây nhé!">
+                    
+                </form>
+            </div>
+            <div class="user-actions">
+            <div class="account-wrapper">
+                <a href="dangnhap.html" id="btn-account-header" class="action-btn">
+                    <i class="fas fa-user"></i> 
+                    <span>Tài khoản</span>
+                </a>
+                <ul class="account-submenu" id="accountSubmenu">
+                    <li><a href="dangnhap.html">Đăng nhập</a></li>
+                    <li><a href="dangky.html">Đăng ký</a></li>
+                </ul>
+            </div>
+                <a href="donhang.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-box"></i> <span>Đơn hàng</span></a>
+
+<a href="yeuthich.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-heart"></i> <span>Yêu thích <span id="favCount" class="cart-count">0</span></span></a>
+
+<a href="giohang.html" onclick="return window.requireLogin();" class="action-btn cart-btn">
+    <i class="fas fa-shopping-bag"></i> 
+    <span>Giỏ hàng <span id="cartCount" class="cart-count">0</span></span>
+</a>
+                <div class="lang-dropdown">
+    <a href="#" class="action-btn lang-btn notranslate" translate="no">
+        <img src="../img/vn-flag.jpg" alt="VN" class="flag-icon"> 
+        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </a>
+    
+    <ul class="dropdown-menu lang-menu notranslate" translate="no">
+        <li>
+            <a href="#" onclick="changeLanguage('vi')">
+                <img src="../img/vn-flag.jpg" alt="Tiếng Việt" class="flag-icon">
+                <span translate="no">VN</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="changeLanguage('en')">
+                <img src="../img/en-flag.jpg" alt="Tiếng Anh" class="flag-icon">
+                <span translate="no">EN</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+        <nav class="navigation"><div class="container">
+            <ul class="nav-menu">
+               <li><a href="homepage.html" class="lang-home">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="category-tatcasanpham.html">Sản phẩm</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                        <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                        <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                        <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                    </ul>
+                </li>
+                <li><a href="flashsale.html">Flashsale</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+            </ul>
+        </div></nav>
+    </header>
+
+    <main class="container">
+        <h2>
+            <i class="fas fa-shopping-cart" style="color:#ff4d6d"></i> Giỏ hàng (<span id="cartPageCount">0</span>)
+        </h2>
+        <div class="cart-wrapper">
+            <div class="cart-main">
+                <div class="cart-box">
+                    <div id="cart-items-container"></div>
+                </div>
+                
+                <div class="cart-box">
+                    <h3><i class="fas fa-map-marked-alt"></i> Thông tin nhận hàng</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Họ và tên <span style="color:red">*</span></label>
+                            <input type="text" id="orderName" placeholder="Tên người nhận">
+                            <div class="error-msg" id="errName">Vui lòng nhập họ tên!</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại <span style="color:red">*</span></label>
+                            <input type="tel" id="orderPhone" placeholder="Ví dụ: 0909874632">
+                            <div class="error-msg" id="errPhone">Số điện thoại không hợp lệ!</div>
+                        </div>
+                        <div class="form-group full">
+                            <label>Địa chỉ nhận hàng <span style="color:red">*</span></label>
+                            <textarea id="orderAddress" rows="2" placeholder="Số nhà, Đường, Phường/Xã, Quận/Huyện, Thành phố..."></textarea>
+                            <div class="error-msg" id="errAddress">Vui lòng nhập địa chỉ cụ thể!</div>
+                        </div>
+                        <div class="form-group full">
+                            <label>Lời nhắn cho Gác Xen</label>
+                            <textarea id="orderNote" rows="2" placeholder="Ghi chú thêm (ví dụ: giao giờ hành chính)..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-box">
+                    <h3><i class="fas fa-file-invoice-dollar" style="color:#ff4d6d"></i> Tóm tắt đơn hàng</h3>
+
+                    <h4>Phương thức vận chuyển</h4>
+                    <label class="ship-opt opt-selected">
+                        <input type="radio" name="ship" data-name="GHTK" value="30000" onchange="updateTotal()" checked> 
+                        <img src="../img/ghtk.jpg" class="brand-logo" alt="GHTK">
+                        <div class="brand-info">
+                            <span class="brand-name">Giao Hàng Tiết Kiệm</span>
+                            <span class="brand-desc">(30.000đ)</span>
+                        </div>
+                    </label>
+                    <label class="ship-opt">
+                        <input type="radio" name="ship" data-name="GHN" value="35000" onchange="updateTotal()"> 
+                        <img src="../img/ghn.jpg" class="brand-logo" alt="GHN">
+                        <div class="brand-info">
+                            <span class="brand-name">Giao Hàng Nhanh</span>
+                            <span class="brand-desc">(35.000đ)</span>
+                        </div>
+                    </label>
+                    <label class="ship-opt">
+                        <input type="radio" name="ship" data-name="VNPost" value="25000" onchange="updateTotal()"> 
+                        <img src="../img/vnp.jpg" class="brand-logo" alt="VNPost">
+                        <div class="brand-info">
+                            <span class="brand-name">VNPost</span>
+                            <span class="brand-desc">(25.000đ)</span>
+                        </div>
+                    </label>
+
+                    <h4>Phương thức thanh toán <span style="color:red">*</span></h4>
+                    <label class="pay-opt opt-selected">
+                        <input type="radio" name="payment" data-name="COD" value="COD" checked> 
+                        <i class="fas fa-money-bill-wave" style="color:#27ae60; font-size: 28px; width: 35px; text-align:center;"></i>
+                        <div class="brand-info">
+                            <span class="brand-name">Thanh toán khi nhận hàng</span>
+                            <span class="brand-desc">(COD)</span>
+                        </div>
+                    </label>
+                    <label class="pay-opt">
+                        <input type="radio" name="payment" data-name="MoMo" value="MoMo"> 
+                        <img src="../img/momo.jpg" class="brand-logo" alt="MoMo">
+                        <div class="brand-info">
+                            <span class="brand-name">Ví điện tử MoMo</span>
+                            <span class="brand-desc">Quét mã QR</span>
+                        </div>
+                    </label>
+                    <label class="pay-opt">
+                        <input type="radio" name="payment" data-name="ShopeePay" value="ShopeePay"> 
+                        <img src="../img/shopeepay.jpg" class="brand-logo" alt="ShopeePay">
+                        <div class="brand-info">
+                            <span class="brand-name">Ví ShopeePay</span>
+                        </div>
+                    </label>
+                    <label class="pay-opt">
+                        <input type="radio" name="payment" data-name="ZaloPay" value="ZaloPay"> 
+                        <img src="../img/zalopay.jpg" class="brand-logo" alt="ZaloPay">
+                        <div class="brand-info">
+                            <span class="brand-name">Ví ZaloPay</span>
+                        </div>
+                    </label>
+                    <label class="pay-opt">
+                        <input type="radio" name="payment" data-name="VNPAY" value="VNPAY"> 
+                        <img src="../img/vnpay.jpg" class="brand-logo" alt="VNPAY">
+                        <div class="brand-info">
+                            <span class="brand-name">Cổng VNPAY</span>
+                            <span class="brand-desc">ATM / Visa / Mastercard</span>
+                        </div>
+                    </label>
+
+                    <h4 style="margin-top:20px">Mã giảm giá</h4>
+                    <div class="voucher-box">
+                        <input type="text" id="voucherCode" placeholder="Nhập mã giảm giá...">
+                        <button onclick="applyVoucher()">Áp dụng</button>
+                    </div>
+                    <div id="vchMsg" style="font-size: 13px; margin-bottom: 20px; font-weight: bold;"></div>
+
+                    <label style="margin-bottom: 20px; border: 1px dashed #ff4d6d; padding: 10px 15px; border-radius: 8px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.3s; background: #fff9fa;" id="coinLabel">
+                        <input type="checkbox" id="useCoinCb" onchange="toggleCoin()" style="accent-color: #ff4d6d; width: 18px; height: 18px; cursor: pointer;"> 
+                        <i class="fas fa-coins" style="color:#f1c40f; font-size: 26px; width: 35px; text-align:center;"></i>
+                        <div class="brand-info">
+                            <span class="brand-name">Dùng <span id="userCoinSpan" style="color:#ff4d6d">0</span> xu</span>
+                            <span class="brand-desc">(Trừ <strong id="coinValueSpan">0đ</strong>)</span>
+                        </div>
+                    </label>
+
+                    <div class="sum-row"><span>Tạm tính</span><strong id="subTotal">0đ</strong></div>
+                    <div class="sum-row"><span>Giảm giá (voucher)</span><strong id="vchDiscount" style="color: #27ae60;">-0đ</strong></div>
+                    <div class="sum-row" id="coinRow" style="display: none;"><span>Dùng xu</span><strong id="coinDiscountAmt" style="color: #27ae60;">-0đ</strong></div>
+                    <div class="sum-row"><span>Phí vận chuyển</span><strong id="shipFee">30.000đ</strong></div>
+                    <div class="sum-total"><span>Tổng cộng</span><span id="finalTotal">0đ</span></div>
+
+                    <button class="btn-checkout" onclick="processOrder()">🔒 TIẾN HÀNH ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </div>
+        <div id="google_translate_element" style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+
+        <div class="lienhe-container">
+            <div class="lienhe-group">
+                <a href="javascript:void(0)" onclick="toggleChatbot()" class="lienhe-item">
+                    <span>Chat AI</span>
+                    <div class="icon-circle" style="background-color: #ffffff !important;">
+                        <i class="fa-solid fa-robot" style="color: #ff4d6d !important;"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" class="lienhe-item">
+                    <span>Facebook</span>
+                    <div class="icon-circle"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" class="lienhe-item">
+                    <span>Instagram</span>
+                    <div class="icon-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="tel:0377953921" class="lienhe-item">
+                    <span>Hotline</span>
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                </a>
+            </div>
+
+            <div class="main-lienhe-icon">
+                <img src="../img/lienhe.jpg" alt="cat-icon">
+            </div>
+
+            <div id="gacxen-chatbot" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> Mao Mao </h3>
+                    <button onclick="toggleChatbot()" class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-msg">
+                        <div class="msg-bubble">Meow! Mình là trợ lý AI của Gác Xen. Mình có thể giúp gì cho bạn? 🐾</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="container newsletter-inner">
+                <div class="newsletter-title">
+                    <i class="far fa-envelope-open"></i> ĐĂNG KÝ NHẬN BẢN TIN
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Nhập địa chỉ email của bạn...">
+                    <button class="btn-subscribe" id="btnSubscribe">Đăng ký</button>
+                    <button class="btn-unsubscribe" id="btnUnsubscribe">Hủy đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content-wrapper">
+            <div class="footer-left">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách" class="footer-logo"></a>
+                <p>12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</p>
+                <p>Công Ty TNHH Gác Xen</p>
+                <p>Gác Xen nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
+                <img src="../img/dathongbao.jpg" alt="Logo bộ công thương" class="footer-logo">
+                
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tuisokiuu_3?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                
+                <div class="footer-menus">
+                    <div class="footer-col">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                            <li><a href="flashsale.html">Flashsale</a></li>
+                            <li><a href="gioithieu.html">Giới thiệu</a></li>
+                            <li><a href="lienhe.html">Liên hệ</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Chính sách hỗ trợ</h4>
+                        <ul>
+                            <li><a href="gioithieu.html?policy=giaonhan">Thông tin vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=doitra">Chính sách đổi - trả - hoàn tiền</a></li>
+                            <li><a href="gioithieu.html?policy=baohanh">Chính sách bảo hành - bồi hoàn</a></li>
+                            <li><a href="gioithieu.html?policy=vanchuyen">Chính sách vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=baomat">Chính sách bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Tài khoản của tôi</h4>
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập/Tạo mới tài khoản</a></li>
+                            <li><a href="taikhoan.html">Chi tiết tài khoản</a></li>
+                            <li><a href="giohang.html">Giỏ hàng của tôi</a></li>
+                            <li><a href="yeuthich.html">Danh sách yêu thích của tôi</a></li>
+                            <li><a href="donhang.html">Lịch sử mua hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col-new">
+                        <h4 class="pink-heading">Thông tin liên hệ</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span><a href="https://maps.app.goo.gl/1B5HR1rLtcE8mr8X8">12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i> 
+                                <span><a href="tel:0377953921">0377953921</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i> 
+                                <span><a href="mailto:gacxen.xinchao@gmail.com">gacxen.xinchao@gmail.com</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="payment-shipping-logos">
+                    <div class="logo-row row-top">
+                        <img src="../img/ghtk.jpg" alt="Giao Hàng Tiết Kiệm">
+                        <img src="../img/ghn.jpg" alt="Giao Hàng Nhanh">
+                        <img src="../img/vnp.jpg" alt="VNPost">
+                    </div>
+                    <div class="logo-row row-bottom">
+                        <img src="../img/vnpay.jpg" alt="VNPAY">
+                        <img src="../img/momo.jpg" alt="MoMo">
+                        <img src="../img/shopeepay.jpg" alt="ShopeePay">
+                        <img src="../img/zalopay.jpg" alt="ZaloPay">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <div id="successModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:#fff; padding:35px; border-radius:15px; text-align:center; max-width:400px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+            <i class="fas fa-check-circle" style="font-size:60px; color:#27ae60; margin-bottom:20px;"></i>
+            <h3 style="color:#333; margin-bottom:10px; font-size: 22px; border: none; padding: 0;">Đặt hàng thành công!</h3>
+            <p style="color:#666; margin-bottom:25px; font-size: 15px; line-height: 1.5;">Cảm ơn bạn! Đơn hàng của bạn đã được ghi nhận và đang chờ Gác Xen xác nhận.</p>
+            <button onclick="window.location.href='donhang.html'" style="background: linear-gradient(135deg, #ff4d6d, #f65385); color: white; border: none; padding: 12px 35px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 15px; box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);">Xem đơn hàng của tôi</button>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/script_3gtdnyt.js"></script>
+    
+    <script>
+        document.querySelectorAll('.ship-opt, .pay-opt').forEach(function(opt) {
+            opt.addEventListener('click', function() {
+                var parent = this.parentElement;
+                parent.querySelectorAll('.opt-selected').forEach(function(el){ el.classList.remove('opt-selected'); });
+                this.classList.add('opt-selected');
+                
+                this.querySelector('input').checked = true;
+                
+                if(this.classList.contains('ship-opt')) {
+                    if (typeof updateTotal === 'function') updateTotal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylegt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="searchOverlay" class="search-overlay"></div>
+
+<div id="searchSidebar" class="search-sidebar">
+    
+   <div class="search-header">
+            <form id="sidebarSearchForm">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm" autocomplete="off">
+              
+
+                <div id="searchSuggestions"
+                class="search-suggestions"></div>
+
+            </form>
+
+            <span class="close-btn"
+            onclick="closeSearch()">✕</span>
+
+        </div>
+
+ <ul class="search-menu">
+    <li><a href="#" onclick="selectCategory('kinhte')">Sách kinh tế - tài chính</a></li>
+    <li><a href="#" onclick="selectCategory('vanhoc')">Sách văn học</a></li>
+    <li><a href="#" onclick="selectCategory('tamly')">Sách tâm lý - kỹ năng</a></li>
+    <li><a href="#" onclick="selectCategory('khoahoc')">Sách khoa học - giáo dục</a></li>
+</ul>
+
+</div>
+
+
+<div class="top-bar">
+    <div class="marquee-container">
+        <div class="marquee-group">
+            <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp; &nbsp;&nbsp;</p>
+            <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp; &nbsp;&nbsp;</p>
+        </div>
+        <div class="marquee-group">
+            <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp; &nbsp;&nbsp;</p>
+            <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp; &nbsp;&nbsp;</p>
+        </div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container header-main">
+        <div class="logo">
+            <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Gác Xen"></a>
+        </div>
+        
+        <div class="search-bar">
+            <form id="searchForm" action="sanpham.html" method="GET">
+               <input type="text" onclick="openSearch()" readonly placeholder="Cần sách gì tìm ở đây nhé!">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+<div class="user-actions">
+        <div class="account-wrapper">
+                <a href="dangnhap.html" id="btn-account-header" class="action-btn">
+                    <i class="fas fa-user"></i> 
+                    <span>Tài khoản</span>
+                </a>
+                <ul class="account-submenu" id="accountSubmenu">
+                    <li><a href="dangnhap.html">Đăng nhập</a></li>
+                    <li><a href="dangky.html">Đăng ký</a></li>
+                </ul>
+            </div>
+            <a href="donhang.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-box"></i> <span>Đơn hàng</span></a>
+
+<a href="yeuthich.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-heart"></i> <span>Yêu thích <span id="favCount" class="cart-count">0</span></span></a>
+
+<a href="giohang.html" onclick="return window.requireLogin();" class="action-btn cart-btn">
+    <i class="fas fa-shopping-bag"></i> 
+    <span>Giỏ hàng <span id="cartCount" class="cart-count">0</span></span>
+</a>
+            
+            <div class="lang-dropdown">
+    <a href="#" class="action-btn lang-btn notranslate" translate="no">
+        <img src="../img/vn-flag.jpg" alt="VN" class="flag-icon"> 
+        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </a>
+    
+    <ul class="dropdown-menu lang-menu notranslate" translate="no">
+        <li>
+            <a href="#" onclick="changeLanguage('vi')">
+                <img src="../img/vn-flag.jpg" alt="Tiếng Việt" class="flag-icon">
+                <span translate="no">VN</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="changeLanguage('en')">
+                <img src="../img/en-flag.jpg" alt="Tiếng Anh" class="flag-icon">
+                <span translate="no">EN</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+
+    <nav class="navigation">
+        <div class="container">
+            <ul class="nav-menu">
+               <li><a href="homepage.html" class="lang-home">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="category-tatcasanpham.html">Sản phẩm</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                        <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                        <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                        <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                    </ul>
+                </li>
+                <li><a href="flashsale.html">Flashsale</a></li>
+                <li><a href="gioithieu.html" class="active">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="about-us-content" id="mainAboutContent">
+    
+    <section class="hero-header container" style="margin-top: 30px;">
+        <div class="hero-flex-container">
+            <div class="hero-logo-side">
+                <img src="../img/logo1.jpg" alt="Brand Logo">
+                <h2>GÁC XEN</h2>
+                <p>Nơi bạn gác lại âu lo, xen mình vào tri thức ❤️</p>
+            </div>
+            <div class="hero-video-side">
+                <video autoplay muted loop playsinline class="main-clip">
+                    <source src="../img/clip.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+                <div class="video-caption">Gác Xen - Tri thức nâng tầm cuộc sống</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container">
+<div class="dynamic-header" style="margin-bottom: 30px; display: flex; justify-content: center;">
+    <i class="fas fa-book-open leaf-icon" style="margin-right: 15px;"></i>
+    <h2 class="gradient-text-green">CÂU CHUYỆN THƯƠNG HIỆU</h2>
+    <span class="sparkle-icon">✨</span>
+</div>        <div class="story-grid">
+            <div class="story-card">
+                <h3>Khởi nguồn</h3>
+                <p>Gác Xen ra đời từ tình yêu mãnh liệt với những trang giấy. Chúng tôi thấu hiểu cảm giác tìm kiếm một góc nhỏ bình yên giữa bộn bề cuộc sống để đắm chìm vào thế giới của tri thức và sự chữa lành.</p>
+            </div>
+            <div class="story-card">
+                <h3>Tâm nguyện</h3>
+                <p>Mỗi cuốn sách tại Gác Xen đều được chọn lọc kỹ lưỡng, mang đến giá trị đích thực cho độc giả. Sự hài lòng và niềm vui của bạn khi cầm trên tay một cuốn sách hay chính là ưu tiên hàng đầu của chúng tôi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="meet-team section-padding container">
+<section class="meet-team section-padding container">
+    <div class="dynamic-header" style="margin-bottom: 30px; display: flex; justify-content: center;">
+        <i class="fas fa-users leaf-icon" style="margin-right: 15px;"></i>
+        <h2 class="gradient-text-green">ĐỘI NGŨ NHÂN SỰ CỦA CHÚNG MÌNH!</h2>
+            <span class="sparkle-icon">✨</span>
+    </div>
+<div class="team-grid">
+            <div class="team-card">
+                <div class="img-frame"><img src="../img/tv1.jpg" alt="Founder"></div>
+                <h4>Nguyễn Hoàng Thùy Vy</h4>
+                <span>Founder & Manager</span>
+            </div>
+            <div class="team-card">
+                <div class="img-frame"><img src="../img/tv2.jpg" alt="Staff"></div>
+                <h4>Nguyễn Thị Thảo Vi</h4>
+                <span>Tư vấn viên tận tâm</span>
+            </div>
+            <div class="team-card">
+                <div class="img-frame"><img src="../img/tv3.jpg" alt="Staff"></div>
+                <h4>Trần Thị Anh Thi</h4>
+                <span>Giám đốc trải nghiệm</span>
+            </div>
+            <div class="team-card">
+                <div class="img-frame"><img src="../img/tv4.jpg" alt="Staff"></div>
+                <h4>Võ Thị Thúy Như</h4>
+                <span>Quản lý nội dung</span>
+            </div>
+            <div class="team-card">
+                <div class="img-frame"><img src="../img/tv5.jpg" alt="Staff"></div>
+                <h4>Võ Thị Thu Ngân</h4>
+                <span>Chuyên viên Marketing</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-signals section-padding container">
+        <div class="dynamic-header" style="margin-bottom: 30px; display: flex; justify-content: center;">
+        <i class="fas fa-trophy leaf-icon" style="margin-right: 15px;"></i>
+        <h2 class="gradient-text-green">THÀNH TỰU ĐÃ ĐẠT ĐƯỢC</h2>
+            <span class="sparkle-icon">✨</span>
+
+    </div>
+        <div class="stats-bar">
+            <div class="stat-item"><strong>15,000+</strong><p>Đầu sách đã giao</p></div>
+            <div class="stat-item"><strong>800+</strong><p>Độc giả thân thiết</p></div>
+            <div class="stat-item"><strong>100%</strong><p>Sách bản quyền</p></div>
+        </div>
+        <div class="partners">
+<div class="dynamic-header" style="margin-bottom: 30px; display: flex; justify-content: center;">
+        <i class="fas fa-handshake leaf-icon" style="margin-right: 15px;"></i>
+        <h2 class="gradient-text-green">ĐỐI TÁC CHIẾN LƯỢC</h2>
+            <span class="sparkle-icon">✨</span>
+
+    </div>            <div class="partner-logos-img">
+                <img src="../img/nhanam.png" alt="Nhã Nam">
+                <img src="../img/nxbtre.png" alt="NXB Trẻ">
+                <img src="../img/kimdong.png" alt="Kim Đồng">
+                <img src="../img/alphabooks.png" alt="Alpha Books">
+            </div>
+        </div>
+    </section>
+    <section class="testimonials section-padding container">
+<section class="testimonials section-padding container">
+    <div class="dynamic-header" style="margin-bottom: 30px; display: flex; justify-content: center;">
+        <i class="fas fa-comment-dots leaf-icon" style="margin-right: 15px;"></i>
+        <h2 class="gradient-text-green">GÓC ĐÁNH GIÁ TỪ ĐỘC GIẢ</h2>
+            <span class="sparkle-icon">✨</span>
+    </div>
+<div class="testimonial-grid">
+        
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Sách ở Gác Xen được gói rất cẩn thận, mình rất thích cách shop sử dụng giấy Kraft để bảo vệ môi trường. Sách mới, không bị móp góc, sẽ ủng hộ dài dài!"</p>
+            <div class="testimonial-user">
+                <img src="../img/user1.jpg" alt="Độc giả">
+                <div class="user-info">
+                    <strong>Minh Anh</strong>
+                    <span>Độc giả thân thiết</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Tìm được Gác Xen như tìm được một góc trú ẩn vậy. Các tựa sách tâm lý ở đây rất hay và giúp ích cho mình rất nhiều trong việc chữa lành tâm hồn."</p>
+            <div class="testimonial-user">
+                <img src="../img/user2.jpg" alt="Độc giả">
+                <div class="user-info">
+                    <strong>Hoàng Nam</strong>
+                    <span>Sinh viên</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="testimonial-text">"Giao hàng siêu nhanh, tối đặt sáng mai đã thấy shipper gọi rồi. Nhân viên tư vấn cực kỳ dễ thương và nhiệt tình luôn nha mọi người."</p>
+            <div class="testimonial-user">
+                <img src="../img/user3.jpg" alt="Độc giả">
+                <div class="user-info">
+                    <strong>Thùy Chi</strong>
+                    <span>Nhân viên văn phòng</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="sitemap-intro container" style="margin-top: 50px; padding: 40px 0; border-top: 1px dashed #ffb3c1;">
+    <div class="dynamic-header" style="margin-bottom: 30px; display: flex; justify-content: center;">
+        <i class="fas fa-map-marked-alt leaf-icon" style="margin-right: 15px;"></i>
+        <h2 class="gradient-text-green">SƠ ĐỒ HỆ THỐNG GÁC XÉN</h2>
+            <span class="sparkle-icon">✨</span>
+
+    </div>
+
+    <div class="sitemap-grid">
+        <div class="sitemap-box">
+            <div class="box-icon"><i class="fas fa-shopping-bag"></i></div>
+            <h4>KHÁM PHÁ & MUA SẮM</h4>
+            <ul>
+                <li><a href="homepage.html">Trang chủ</a></li>
+                <li><a href="category-tatcasanpham.html">Tất cả sản phẩm</a></li>
+                <li><a href="flashsale.html">Sự kiện Flash Sale</a></li>
+                <li><a href="product-detail.html">Chi tiết sản phẩm</a></li>
+            </ul>
+        </div>
+
+        <div class="sitemap-box">
+            <div class="box-icon"><i class="fas fa-user-circle"></i></div>
+            <h4>CÁ NHÂN HÓA</h4>
+            <ul>
+                <li><a href="taikhoan.html">Quản lý tài khoản</a></li>
+                <li><a href="yeuthich.html">Danh sách yêu thích</a></li>
+                <li><a href="donhang.html">Theo dõi đơn hàng</a></li>
+                <li><a href="giohang.html">Giỏ hàng của bạn</a></li>
+            </ul>
+        </div>
+
+        <div class="sitemap-box">
+            <div class="box-icon"><i class="fas fa-info-circle"></i></div>
+            <h4>KẾT NỐI & HỖ TRỢ</h4>
+            <ul>
+                <li><a href="gioithieu.html">Về Gác Xén</a></li>
+                <li><a href="lienhe.html">Liên hệ hỗ trợ</a></li>
+                <li><a href="dangnhap.html">Đăng nhập hệ thống</a></li>
+                <li><a href="dangky.html">Đăng ký thành viên</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<div id="google_translate_element" style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</main>
+
+<section id="policyViewer" class="policy-viewer-section container" style="display: none;">
+    
+    <div class="policy-content-wrapper">
+
+        <div id="policy-giaonhan" class="policy-data" style="display: none;">
+            <h2 class="policy-main-title">THÔNG TIN VẬN CHUYỂN & GIAO NHẬN TẠI GÁC XEN</h2>
+            <p>Tại <strong>Gác Xen</strong>, chúng mình hiểu rằng mỗi cuốn sách đều mang theo sự mong chờ của bạn. Vì vậy, Gác Xen thiết lập quy trình vận chuyển chặt chẽ với các cam kết cụ thể nhằm đảm bảo sản phẩm đến tay bạn một cách trọn vẹn và an toàn nhất.</p>
+
+            <h3 class="policy-sub-title">1. Nghĩa vụ của Đơn vị Vận chuyển</h3>
+            <p>Đơn vị vận chuyển (đối tác của Gác Xen) có trách nhiệm:</p>
+            <ul>
+                <li><strong>Bảo đảm an toàn:</strong> Vận chuyển sách đầy đủ, nguyên vẹn đến địa điểm đã định theo đúng thời hạn thỏa thuận.</li>
+                <li><strong>Giao đúng người:</strong> Chỉ giao hàng cho người có quyền nhận hàng theo thông tin trên đơn hàng.</li>
+                <li><strong>Chi phí:</strong> Chịu mọi chi phí liên quan đến việc chuyên chở, trừ trường hợp hai bên có thỏa thuận khác.</li>
+                <li><strong>Bảo hiểm & Bồi thường:</strong> Mua bảo hiểm trách nhiệm dân sự theo pháp luật. Bồi thường thiệt hại cho Gác Xen nếu để xảy ra mất mát hoặc hư hỏng sách trong quá trình vận chuyển.</li>
+                <li><strong>Hỗ trợ khách hàng:</strong> Trường hợp phát sinh chậm trễ, phải thông báo kịp thời để khách hàng chủ động sắp xếp hoặc hủy đơn.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">2. Quyền của Đơn vị Vận chuyển</h3>
+            <ul>
+                <li>Kiểm tra tính xác thực của đơn hàng và chứng từ vận chuyển.</li>
+                <li>Từ chối vận chuyển nếu mặt hàng thuộc danh mục hàng cấm, hàng nguy hiểm theo quy định pháp luật.</li>
+                <li>Yêu cầu thanh toán đầy đủ cước phí vận chuyển đúng hạn.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">3. Nghĩa vụ của Bên thuê Vận chuyển (Gác Xen & Khách hàng)</h3>
+            <ul>
+                <li><strong>Thanh toán:</strong> Trả đủ tiền cước phí vận chuyển theo đúng phương thức đã thỏa thuận (COD hoặc chuyển khoản).</li>
+                <li><strong>Thông tin chính xác:</strong> Cung cấp đầy đủ Tên, SĐT, Địa chỉ cụ thể để đảm bảo hàng được giao chính xác.</li>
+                <li><strong>Trách nhiệm bảo quản:</strong> Trường hợp khách hàng tự trông coi hàng hóa trên đường vận chuyển mà xảy ra mất mát, Gác Xen và đơn vị vận chuyển sẽ không chịu trách nhiệm bồi thường.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">4. Trách nhiệm Bồi thường Thiệt hại</h3>
+            <ul>
+                <li>Bên vận chuyển bồi thường nếu để hàng hoá bị mất hoặc hư hỏng.</li>
+                <li>Bên thuê vận chuyển bồi thường nếu hàng hoá có tính chất nguy hiểm, độc hại mà không có biện pháp đóng gói an toàn.</li>
+                <li>Trường hợp bất khả kháng (thiên tai, sự cố lớn...) dẫn đến mất mát, bên vận chuyển không phải chịu trách nhiệm bồi thường, trừ khi có thỏa thuận khác.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">5. Lưu ý khi nhận hàng tại Gác Xen</h3>
+            <p>Để bảo vệ quyền lợi của mình, Gác Xen khuyến khích bạn:</p>
+            <ul>
+                <li><strong>Kiểm tra niêm phong:</strong> Đảm bảo gói hàng còn nguyên vẹn, không có dấu hiệu bị bóc mở trước khi nhận.</li>
+                <li><strong>Đồng kiểm:</strong> Nếu đơn vị vận chuyển cho phép, bạn nên kiểm tra sơ bộ tình trạng sách bên trong.</li>
+            </ul>
+
+            <div class="policy-contact-box">
+                <h4>LIÊN HỆ KHI CÓ SỰ CỐ GIAO NHẬN</h4>
+                <p>Nếu đơn hàng đến chậm hoặc có bất kỳ sự cố nào, hãy gọi ngay cho chúng mình tại:</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> Số 12 Nguyễn Văn Bảo, P. Hạnh Thông, TP. Hồ Chí Minh.</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Hotline:</strong> 0909874632</p>
+                <p><em>Gác Xen – Gói ghém tri thức, giao tận tay bạn.</em></p>
+            </div>
+        </div>
+
+        <div id="policy-doitra" class="policy-data" style="display: none;">
+            <h2 class="policy-main-title">CHÍNH SÁCH ĐỔI TRẢ & HOÀN TIỀN TẠI GÁC XEN</h2>
+            <p>Tại <strong>Gác Xen</strong>, chúng mình trân trọng từng đơn hàng và sự tin tưởng mà bạn dành cho những trang sách. Để đảm bảo bạn luôn có trải nghiệm đọc sách trọn vẹn nhất, Gác Xen cam kết bảo vệ quyền lợi người tiêu dùng thông qua chính sách hậu mãi minh bạch dưới đây.</p>
+            <p>Mọi sản phẩm tại Gác Xen đều là <strong>hàng mới và 100% chính hãng</strong>. Trong trường hợp hiếm hoi sản phẩm gặp lỗi, hư hỏng hoặc không đúng như mô tả, chúng mình luôn sẵn sàng đồng hành để hỗ trợ bạn.</p>
+
+            <h3 class="policy-sub-title">1. Thời gian quy định</h3>
+            <p>Để việc hỗ trợ được nhanh chóng nhất, bạn vui lòng lưu ý hai mốc thời gian “vàng” sau:</p>
+            <ul>
+                <li><strong>Thông báo đổi trả:</strong> Trong vòng <strong>48h</strong> kể từ khi nhận hàng (áp dụng cho các lỗi kỹ thuật: thiếu sản phẩm, lỗi in ấn/gia công, sách bị móp méo hoặc rách trong quá trình vận chuyển).</li>
+                <li><strong>Gửi sản phẩm về Gác Xen:</strong> Trong vòng <strong>14 ngày</strong> kể từ ngày nhận hàng thành công.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">2. Điều kiện đổi trả hàng</h3>
+            <p>Sản phẩm sẽ được Gác Xen tiếp nhận đổi trả khi thỏa mãn các điều kiện:</p>
+            <ul>
+                <li>Sản phẩm còn <strong>nguyên hiện trạng ban đầu</strong> (không có dấu hiệu đã qua sử dụng, không viết vẽ, không làm bẩn).</li>
+                <li>Còn đầy đủ các <strong>phụ kiện, quà tặng</strong> kèm theo (nếu có).</li>
+                <li>Có <strong>hóa đơn hoặc phiếu giao hàng</strong> đi kèm.</li>
+            </ul>
+            <p><em>Lưu ý: Gác Xen rất tiếc không áp dụng chính sách đổi trả/bảo hành đối với các sản phẩm là quà tặng kèm.</em></p>
+
+            <h3 class="policy-sub-title">3. Quy trình đổi trả đơn giản</h3>
+            <ul>
+                <li><strong>Bước 1: Đăng ký đổi hàng.</strong> Liên hệ Hotline, Zalo hoặc gửi email về địa chỉ của shop với tiêu đề: <em>[Đổi Hàng] – [Mã đơn hàng]</em>. Đừng quên đính kèm ảnh chụp thực tế lỗi của sản phẩm nhé.</li>
+                <li><strong>Bước 2: Xác nhận.</strong> Bộ phận chăm sóc khách hàng của Gác Xen sẽ liên hệ xác nhận với bạn qua điện thoại hoặc email.</li>
+                <li><strong>Bước 3: Gửi trả hàng.</strong> Bạn đóng gói sản phẩm như lúc mới nhận và gửi về Gác Xen qua bưu điện trong vòng <strong>02 ngày làm việc</strong> kể từ khi chúng mình xác nhận.</li>
+                <li><strong>Bước 4: Hoàn tất.</strong> Sau khi nhận được hàng và kiểm tra, Gác Xen sẽ tiến hành gửi sản phẩm mới thay thế hoặc hoàn tiền theo giá trị đơn hàng cho bạn.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">4. Lưu ý về đóng gói sản phẩm</h3>
+            <ul>
+                <li><strong>Đóng gói và bọc lót</strong> chắc chắn như hiện trạng ban đầu.</li>
+                <li>Ghi rõ <strong>Mã số đơn hàng</strong> lên bao bì đóng gói.</li>
+            </ul>
+            <p><em>Nếu gặp khó khăn khi làm việc với đơn vị vận chuyển, hãy gọi ngay Hotline để chúng mình hỗ trợ nhé!</em></p>
+
+            <div class="policy-contact-box">
+                <h4>THÔNG TIN LIÊN HỆ GÁC XEN</h4>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> Số 12 Nguyễn Văn Bảo, P. Hạnh Thông, Thành phố Hồ Chí Minh.</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Hotline:</strong> 0909874632</p>
+                <p><em>Gác Xen hy vọng bạn sẽ tìm thấy những giá trị tuyệt vời sau mỗi trang sách!</em></p>
+            </div>
+        </div>
+
+        <div id="policy-baohanh" class="policy-data" style="display: none;">
+            <h2 class="policy-main-title">CHÍNH SÁCH BẢO HÀNH – BỒI HOÀN TẠI GÁC XEN</h2>
+            <p><em>(Áp dụng cho toàn bộ đơn hàng đặt mua trực tuyến tại Gacxen.vn)</em></p>
+            <p>Tại <strong>Gác Xen</strong>, chúng mình hiểu rằng sự an tâm của khách hàng là ưu tiên hàng đầu. Dù chỉ hoạt động trên nền tảng trực tuyến, Gác Xen cam kết hỗ trợ bảo hành và bồi hoàn minh bạch, nhanh chóng cho mọi sự cố về sản phẩm.</p>
+
+            <h3 class="policy-sub-title">1. Hình thức bảo hành tại Gác Xen</h3>
+            <p>Vì Gác Xen không có cửa hàng vật lý, mọi quy trình bảo hành đều được thực hiện qua hình thức vận chuyển tận nhà:</p>
+            <ul>
+                <li><strong>Đối với sách và văn phòng phẩm:</strong> Bảo hành dựa trên <strong>Mã đơn hàng</strong> và <strong>Hình ảnh/Video</strong> thực tế sản phẩm khi nhận hàng.</li>
+                <li><strong>Đối với sản phẩm điện tử, đồ chơi công nghệ:</strong>
+                    <ul>
+                        <li><em>Bảo hành trực tiếp tại Hãng:</em> Quý khách mang sản phẩm kèm phiếu bảo hành đến trung tâm bảo hành của Hãng.</li>
+                        <li><em>Bảo hành thông qua Gác Xen:</em> Nếu gặp khó khăn, hãy liên hệ Hotline, chúng mình sẽ thay mặt bạn làm việc với nhà sản xuất.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="policy-sub-title">2. Điều kiện được bảo hành miễn phí</h3>
+            <ul>
+                <li>Sản phẩm vẫn còn trong thời hạn bảo hành quy định.</li>
+                <li><strong>Lỗi kỹ thuật từ nhà sản xuất:</strong> Sách in thiếu trang, ngược khổ, lỗi mực in; Đồ chơi điện tử không hoạt động dù mới khui hộp…</li>
+                <li>Tem/phiếu bảo hành (nếu có) còn nguyên vẹn, không có dấu hiệu bị xé dán lại.</li>
+                <li>Có đầy đủ video quay lại quá trình mở hàng (unboxing) để đối chiếu.</li>
+            </ul>
+            <p><strong>Các trường hợp phát sinh phí hoặc từ chối bảo hành:</strong></p>
+            <ul>
+                <li>Sản phẩm hư hỏng do lỗi người dùng: Làm rơi, thấm nước, cháy nổ, sử dụng sai nguồn điện…</li>
+                <li>Sách bị rách, bẩn hoặc nhào nát trong quá trình sử dụng của khách hàng.</li>
+                <li>Sản phẩm quà tặng kèm theo.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">3. Quy trình bảo hành Online nhanh chóng</h3>
+            <ul>
+                <li><strong>Bước 1:</strong> Liên hệ Hotline hoặc nhắn tin Fanpage Gác Xen, cung cấp <strong>Mã đơn hàng</strong> và <strong>Video lỗi sản phẩm</strong>.</li>
+                <li><strong>Bước 2:</strong> Chuyên viên CSKH kiểm tra và phản hồi phương án xử lý trong vòng 24h.</li>
+                <li><strong>Bước 3:</strong> Nếu cần kiểm tra, Gác Xen sẽ hướng dẫn đóng gói và gửi qua đường bưu điện.</li>
+                <li><strong>Bước 4:</strong> Thời gian xử lý bảo hành dự kiến từ <strong>14 – 30 ngày</strong>.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">4. Các hình thức xác nhận bảo hành</h3>
+            <ul>
+                <li><strong>Mã đơn hàng/Số điện thoại:</strong> Đọc số điện thoại để kiểm tra lịch sử mua hàng.</li>
+                <li><strong>Tem bảo hành:</strong> Dán trực tiếp trên sản phẩm đặc thù.</li>
+                <li><strong>Hóa đơn điện tử:</strong> Được gửi qua Email/SMS sau khi mua hàng.</li>
+            </ul>
+
+            <div class="policy-contact-box">
+                <h4>GÁC XEN – MUA SẮM ONLINE, AN TÂM NHƯ TẠI QUẦY</h4>
+                <p><strong>Lưu ý:</strong> Gác Xen <strong>chỉ chấp nhận xử lý</strong> khi khách hàng cung cấp đầy đủ hình ảnh/clip khui hàng.</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> Số 12 Nguyễn Văn Bảo, P. Hạnh Thông, Thành phố Hồ Chí Minh.</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Hotline hỗ trợ:</strong> 0909874632</p>
+            </div>
+        </div>
+
+        <div id="policy-vanchuyen" class="policy-data" style="display: none;">
+            <h2 class="policy-main-title">CHÍNH SÁCH VẬN CHUYỂN & GIAO NHẬN TẠI GÁC XEN</h2>
+            <p>Tại <strong>Gác Xen</strong>, chúng mình hiểu rằng mỗi cuốn sách đều mang theo sự mong chờ của bạn. Vì vậy, Gác Xen đã hợp tác với các đơn vị vận chuyển uy tín nhất, thiết lập quy trình chặt chẽ để đảm bảo sách đến tay bạn trọn vẹn nhất.</p>
+
+            <h3 class="policy-sub-title">1. Thời gian giao hàng dự kiến</h3>
+            <p>Ngay sau khi đơn hàng được xác nhận, Gác Xen sẽ tiến hành đóng gói và bàn giao cho đơn vị vận chuyển trong vòng 24h.</p>
+            <ul>
+                <li><strong>Khu vực TP. Hồ Chí Minh:</strong> Từ 1 – 2 ngày làm việc.</li>
+                <li><strong>Khu vực Tỉnh/Thành phố khác:</strong> Từ 3 – 5 ngày làm việc.</li>
+                <li><strong>Khu vực vùng sâu, vùng xa/Hải đảo:</strong> Từ 5 – 7 ngày làm việc.</li>
+            </ul>
+            <p><em>(Thời gian giao hàng không tính Chủ nhật và các ngày Lễ, Tết).</em></p>
+
+            <h3 class="policy-sub-title">2. Phí vận chuyển</h3>
+            <ul>
+                <li><strong>Hỗ trợ phí ship:</strong> Có các chương trình Freeship cho đơn hàng đạt giá trị tối thiểu.</li>
+                <li><strong>Phí ship nội thành:</strong> Khoảng 15.000đ – 25.000đ.</li>
+                <li><strong>Phí ship ngoại tỉnh:</strong> Khoảng 30.000đ – 45.000đ.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">3. Chính sách Kiểm tra hàng (Đồng kiểm) & Nhận hàng</h3>
+            <ul>
+                <li><strong>Kiểm tra niêm phong:</strong> Đảm bảo gói hàng còn nguyên vẹn, không có dấu hiệu bị bóc mở trước khi nhận.</li>
+                <li><strong>Đồng kiểm:</strong> Nếu đơn vị vận chuyển cho phép, bạn được quyền kiểm tra ngoại quan gói hàng và số lượng sách bên trong trước khi thanh toán.</li>
+                <li><strong>Khuyến cáo:</strong> Bạn luôn nên quay video lại quá trình mở hộp làm bằng chứng hỗ trợ xử lý sự cố.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">4. Trách nhiệm & Quyền hạn của các bên</h3>
+            <p><strong>Nghĩa vụ của Đơn vị Vận chuyển:</strong></p>
+            <ul>
+                <li>Bảo đảm an toàn, giao đúng người, đúng thời hạn.</li>
+                <li>Bồi thường thiệt hại cho Gác Xen nếu để xảy ra mất mát, hư hỏng.</li>
+                <li>Từ chối vận chuyển nếu mặt hàng không đúng thỏa thuận hoặc thuộc danh mục hàng cấm.</li>
+            </ul>
+            <p><strong>Nghĩa vụ của Bên thuê (Gác Xen & Khách hàng):</strong></p>
+            <ul>
+                <li>Thanh toán đủ cước phí, cung cấp chính xác Tên, SĐT, Địa chỉ người nhận.</li>
+                <li>Khách hàng tự trông coi hàng hóa trên đường vận chuyển nếu có thỏa thuận riêng sẽ tự chịu trách nhiệm.</li>
+            </ul>
+            
+            <h3 class="policy-sub-title">5. Trách nhiệm bồi thường và rủi ro</h3>
+            <ul>
+                <li><strong>Mất mát/Hư hỏng:</strong> Gác Xen gửi lại sản phẩm mới hoặc hoàn tiền 100% nếu lỗi do quá trình di chuyển.</li>
+                <li><strong>Thông tin sai lệch:</strong> Gác Xen không chịu trách nhiệm nếu hàng bị thất lạc do khách cung cấp sai thông tin.</li>
+                <li><strong>Bất khả kháng:</strong> Thiên tai, dịch bệnh... không áp dụng bồi thường chậm trễ.</li>
+            </ul>
+
+            <div class="policy-contact-box">
+                <h4>THEO DÕI ĐƠN HÀNG & LIÊN HỆ</h4>
+                <p>Bạn có thể tra cứu bằng Mã vận đơn gửi qua SMS/Email. Nếu có sự cố, hãy gọi ngay:</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> Số 12 Nguyễn Văn Bảo, P. Hạnh Thông, Thành phố Hồ Chí Minh.</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Hotline/Zalo:</strong> 0909874632 (09:30 – 20:00 hàng ngày)</p>
+            </div>
+        </div>
+
+        <div id="policy-baomat" class="policy-data" style="display: none;">
+            <h2 class="policy-main-title">CHÍNH SÁCH BẢO MẬT THÔNG TIN TẠI GÁC XEN</h2>
+            <p><strong>Gác Xen</strong> hiểu rằng thông tin cá nhân của bạn là riêng tư và quan trọng. Vì vậy, chúng mình cam kết bảo vệ tối đa quyền lợi của khách hàng thông qua chính sách bảo mật nghiêm ngặt dưới đây:</p>
+
+            <h3 class="policy-sub-title">1. Mục đích thu thập thông tin</h3>
+            <ul>
+                <li><strong>Xử lý đơn hàng:</strong> Xác nhận đơn, đóng gói và giao sách đến đúng địa chỉ.</li>
+                <li><strong>Hỗ trợ khách hàng:</strong> Liên hệ giải quyết các vấn đề về đổi trả, bảo hành hoặc tư vấn sách.</li>
+                <li><strong>Cập nhật ưu đãi:</strong> Gửi thông tin về các chương trình khuyến mãi (chỉ khi bạn đồng ý).</li>
+                <li><strong>Nâng cao trải nghiệm:</strong> Cải thiện chất lượng dịch vụ dựa trên phản hồi của khách hàng.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">2. Phạm vi sử dụng thông tin</h3>
+            <p>Gác Xen cam kết chỉ sử dụng thông tin trong nội bộ cửa hàng và các đối tác trực tiếp:</p>
+            <ul>
+                <li>Đơn vị vận chuyển (để giao hàng).</li>
+                <li>Đơn vị thanh toán (cổng thanh toán trực tuyến).</li>
+                <li>Cơ quan pháp luật khi có yêu cầu bằng văn bản.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">3. Thời gian lưu trữ thông tin</h3>
+            <p>Dữ liệu cá nhân của khách hàng sẽ được lưu trữ an toàn trên hệ thống của Gác Xen cho đến khi đơn hàng hoàn tất hoặc cho đến khi khách hàng có yêu cầu hủy bỏ.</p>
+
+            <h3 class="policy-sub-title">4. Cam kết bảo mật và Chia sẻ thông tin</h3>
+            <ul>
+                <li><strong>Không bán thông tin:</strong> Tuyệt đối không chia sẻ cho bên thứ ba vì mục đích thương mại.</li>
+                <li><strong>Bảo mật giao dịch:</strong> Thông tin thanh toán được mã hóa, Gác Xen KHÔNG lưu trữ số thẻ hay mật khẩu ngân hàng.</li>
+                <li><strong>An toàn dữ liệu:</strong> Ngăn chặn truy cập trái phép bằng các biện pháp kỹ thuật.</li>
+            </ul>
+
+            <h3 class="policy-sub-title">5. Quyền lợi của khách hàng</h3>
+            <ul>
+                <li>Yêu cầu kiểm tra, cập nhật hoặc điều chỉnh thông tin cá nhân.</li>
+                <li>Yêu cầu ngừng gửi các tin nhắn quảng cáo/Marketing.</li>
+                <li>Yêu cầu xóa bỏ hoàn toàn thông tin cá nhân khỏi hệ thống.</li>
+            </ul>
+
+            <div class="policy-contact-box">
+                <h4>ĐỊA CHỈ ĐƠN VỊ QUẢN LÝ THÔNG TIN</h4>
+                <p><i class="fas fa-building"></i> <strong>Tên đơn vị:</strong> Gác Xen</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> Số 12 Nguyễn Văn Bảo, P. Hạnh Thông, Thành phố Hồ Chí Minh.</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Hotline:</strong> 0909874632</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> hi@gacxen.vn</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <div class="lienhe-container">
+            <div class="lienhe-group">
+                <a href="javascript:void(0)" onclick="toggleChatbot()" class="lienhe-item">
+                    <span>Chat AI</span>
+                    <div class="icon-circle" style="background-color: #ffffff !important;">
+                        <i class="fa-solid fa-robot" style="color: #ff4d6d !important;"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" class="lienhe-item">
+                    <span>Facebook</span>
+                    <div class="icon-circle"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" class="lienhe-item">
+                    <span>Instagram</span>
+                    <div class="icon-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="tel:0377953921" class="lienhe-item">
+                    <span>Hotline</span>
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                </a>
+            </div>
+
+            <div class="main-lienhe-icon">
+                <img src="../img/lienhe.jpg" alt="cat-icon">
+            </div>
+
+            <div id="gacxen-chatbot" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> Mao Mao </h3>
+                    <button onclick="toggleChatbot()" class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-msg">
+                        <div class="msg-bubble">Meow! Mình là trợ lý AI của Gác Xen. Mình có thể giúp gì cho bạn? 🐾</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="container newsletter-inner">
+                <div class="newsletter-title">
+                    <i class="far fa-envelope-open"></i> ĐĂNG KÝ NHẬN BẢN TIN
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Nhập địa chỉ email của bạn...">
+                    <button class="btn-subscribe" id="btnSubscribe">Đăng ký</button>
+                    <button class="btn-unsubscribe" id="btnUnsubscribe">Hủy đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content-wrapper">
+            <div class="footer-left">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách" class="footer-logo"></a>
+                <p>12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</p>
+                <p>Công Ty TNHH Gác Xen</p>
+                <p>Gác Xen nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
+                <img src="../img/dathongbao.jpg" alt="Logo bộ công thương" class="footer-logo">
+                
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tuisokiuu_3?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                
+                <div class="footer-menus">
+                    <div class="footer-col">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                            <li><a href="flashsale.html">Flashsale</a></li>
+                            <li><a href="gioithieu.html">Giới thiệu</a></li>
+                            <li><a href="lienhe.html">Liên hệ</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Chính sách hỗ trợ</h4>
+                        <ul>
+                            <li><a href="gioithieu.html?policy=giaonhan">Thông tin vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=doitra">Chính sách đổi - trả - hoàn tiền</a></li>
+                            <li><a href="gioithieu.html?policy=baohanh">Chính sách bảo hành - bồi hoàn</a></li>
+                            <li><a href="gioithieu.html?policy=vanchuyen">Chính sách vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=baomat">Chính sách bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Tài khoản của tôi</h4>
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập/Tạo mới tài khoản</a></li>
+                            <li><a href="taikhoan.html">Chi tiết tài khoản</a></li>
+                            <li><a href="giohang.html">Giỏ hàng của tôi</a></li>
+                            <li><a href="yeuthich.html">Danh sách yêu thích của tôi</a></li>
+                            <li><a href="donhang.html">Lịch sử mua hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col-new">
+                        <h4 class="pink-heading">Thông tin liên hệ</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span><a href="https://maps.app.goo.gl/1B5HR1rLtcE8mr8X8">12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i> 
+                                <span><a href="tel:0377953921">0377953921</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i> 
+                                <span><a href="mailto:gacxen.xinchao@gmail.com">gacxen.xinchao@gmail.com</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="payment-shipping-logos">
+                    <div class="logo-row row-top">
+                        <img src="../img/ghtk.jpg" alt="Giao Hàng Tiết Kiệm">
+                        <img src="../img/ghn.jpg" alt="Giao Hàng Nhanh">
+                        <img src="../img/vnp.jpg" alt="VNPost">
+                    </div>
+                    <div class="logo-row row-bottom">
+                        <img src="../img/vnpay.jpg" alt="VNPAY">
+                        <img src="../img/momo.jpg" alt="MoMo">
+                        <img src="../img/shopeepay.jpg" alt="ShopeePay">
+                        <img src="../img/zalopay.jpg" alt="ZaloPay">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/scriptgt.js"></script>    
+<script src="../js/script.js"></script>
+
+
+</body>
+</html>

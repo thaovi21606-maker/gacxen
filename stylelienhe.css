@@ -1,0 +1,441 @@
+/* ========================================= */
+/* TRANG LIÊN HỆ (CONTACT PAGE)              */
+/* ========================================= */
+
+/* Ép toàn bộ các thành phần trong trang liên hệ dùng đúng font Quicksand, chống lỗi font */
+.contact-page-container,
+.contact-page-container *,
+.gx-contact-form input,
+.gx-contact-form textarea,
+.btn-submit-form {
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif !important;
+}
+
+/* Thêm hiệu ứng cho nút khi đang gửi */
+.btn-submit-form.sending {
+    background: #d16b7e !important; /* Đổi màu nút sậm lại khi đang gửi */
+    opacity: 0.8;
+    cursor: wait !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.contact-page-container {
+    padding: 50px 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Tiêu đề chính */
+.contact-main-title {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.contact-subtitle {
+    color: #888;
+    font-style: italic;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+/* 2 Hộp thông tin (Hotline & Email) */
+/* Tìm class .contact-info-row đang có sẵn và thêm flex-wrap: wrap */
+.contact-info-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* CHÚ Ý: Dòng này rất quan trọng để 4 ô không bị ép dẹp lại trên màn hình nhỏ */
+}
+
+/* Thêm màu sắc cho Icon Messenger và Zalo (Đặt dưới đoạn pink-flower và blue-mail) */
+.info-box-item .mes-icon { 
+    color: #0084ff; /* Màu xanh đặc trưng của Messenger */
+    font-size: 18px; 
+}
+
+.info-box-item .zalo-icon { 
+    fill: #0068ff;  /* Màu xanh đặc trưng của Zalo */
+    width: 20px; 
+    height: 20px; 
+    margin-top: -2px; /* Đẩy nhẹ lên trên để thẳng hàng với chữ */
+}
+
+.info-box-item {
+    background-color: #fffafb;
+    padding: 12px 25px;
+    border-radius: 8px;
+    color: #555;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-box-item .pink-flower { color: #f28b9d; font-size: 18px; }
+.info-box-item .blue-mail { color: #8ba8f2; font-size: 18px; }
+.info-box-item strong { color: #c9184a; }
+
+/* Bố cục 2 Cột: Form & Bản đồ */
+.contact-content-grid {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.contact-form-column, 
+.contact-map-column {
+    flex: 1;
+}
+
+.form-section-title {
+    color: #f67280;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+/* Khung nét đứt bao ngoài Form & Map */
+.form-dashed-wrapper,
+.map-dashed-wrapper {
+    border: 1px dashed #ffb3c1;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #fff;
+    height: 100%; /* Cân bằng chiều cao 2 bên */
+}
+
+/* Ẩn padding của map để iframe lấp đầy */
+.map-dashed-wrapper {
+    padding: 0; 
+    overflow: hidden;
+    min-height: 400px;
+}
+
+/* Style cho các ô input trong form */
+.gx-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.gx-contact-form label {
+    display: block;
+    font-weight: 700;
+    color: #c9184a;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.gx-contact-form .req {
+    color: var(--primary-color);
+}
+
+.gx-contact-form .hidden-label {
+    visibility: hidden; /* Dùng để canh hàng cho ô 'Họ' */
+}
+
+.gx-contact-form input,
+.gx-contact-form textarea {
+    width: 100%;
+    border: 1px solid #ffccd5;
+    border-radius: 12px;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    outline: none;
+    transition: all 0.3s;
+    background-color: #fffafb;
+}
+
+.gx-contact-form input:focus,
+.gx-contact-form textarea:focus {
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(255, 77, 109, 0.15);
+}
+
+.gx-contact-form textarea {
+    resize: vertical;
+}
+
+.gx-contact-form .sub-label {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+/* Hàng chia đôi cho Tên & Họ */
+.form-row-2 {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row-2 .form-group {
+    flex: 1;
+}
+
+/* Nút Submit */
+.submit-row {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-submit-form {
+    background: linear-gradient(135deg, #ff4d6d, #f65385);
+    color: #fff;
+    border: none;
+    padding: 12px 50px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-submit-form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+}
+
+
+
+
+/* Hiệu ứng rê chuột vào link Hotline và Email */
+.info-box-item a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ========================================= */
+/* KHÔI PHỤC FONT CHO CÁC ICON BỊ LỖI        */
+/* ========================================= */
+.contact-page-container i,
+.contact-info-row i {
+    font-family: "Font Awesome 6 Free", "FontAwesome" !important;
+    font-weight: 900 !important;
+}
+
+/* ========================= */
+/* SIDEBAR SEARCH */
+/* ========================= */
+
+.search-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.search-menu li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    background: #f5f5f5;
+}
+
+.search-menu li a:hover {
+    background: #eaeaea;
+}
+
+/* sidebar */
+.search-sidebar{
+    position: fixed;
+
+    top: 0;
+    left: -320px;
+
+    width: 320px;
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 9999;
+
+    transition: 0.3s ease;
+
+    overflow-y: auto;
+}
+
+.search-sidebar.active {
+    left: 0;
+}
+
+/* overlay */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 999;
+}
+
+.search-overlay.active {
+    display: block;
+}
+
+/* suggestions */
+
+.search-suggestions{
+
+    position: absolute;
+
+    top: 55px;
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+    display: none;
+}
+
+/* header */
+
+.search-header{
+    position: relative;
+
+    padding: 8px;
+
+    background: #e60023;
+
+    display: flex;
+
+    align-items: center;
+}
+
+/* form */
+
+#sidebarSearchForm{
+    width: 100%;
+    position: relative;
+}
+
+/* input */
+
+#sidebarSearchForm input{
+
+    width: 100%;
+    height: 40px;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 0 16px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: white;
+}
+
+/* close */
+
+.close-btn{
+
+    position: absolute;
+
+    right: 8px;
+    top: 8px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #e60023;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+/* =======================================================
+   HỆ THỐNG RESPONSIVE - TRANG LIÊN HỆ (MOBILE)
+======================================================= */
+@media screen and (max-width: 768px) {
+    /* 1. Giảm khoảng cách padding tổng thể cho màn hình nhỏ */
+    .contact-page-container {
+        padding: 30px 15px !important;
+    }
+
+    /* 2. Căn giữa và giảm cỡ chữ tiêu đề */
+    .contact-main-title {
+        font-size: 24px !important;
+        text-align: center !important;
+    }
+
+    .contact-subtitle {
+        text-align: center !important;
+        font-size: 14px !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* 3. Khối thông tin (Hotline, Email, Zalo, FB) xếp dọc và căn giữa */
+    .contact-info-row {
+        flex-direction: column !important;
+        gap: 15px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .info-box-item {
+        width: 100% !important;
+        justify-content: center !important; 
+        box-sizing: border-box;
+    }
+
+    /* 4. Form và Bản đồ (Map) chuyển từ xếp ngang sang xếp dọc */
+    .contact-content-grid {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    /* 5. Tinh chỉnh khung Form */
+    .form-dashed-wrapper {
+        padding: 20px 15px !important;
+    }
+
+    /* 6. Hàng Tên & Họ: Xếp dọc thay vì ngang để form không bị ép nhỏ lại */
+    .form-row-2 {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+
+    /* Ẩn nhãn (label) ẩn của ô "Họ" trên mobile để tránh bị dư khoảng trắng thừa */
+    .form-row-2 .hidden-label {
+        display: none !important;
+    }
+
+    /* 7. Giảm chiều cao bản đồ cho vừa với điện thoại */
+    .map-dashed-wrapper {
+        min-height: 300px !important;
+        height: 300px !important;
+    }
+
+    /* 8. Nút Gửi: Kéo giãn 100% chiều ngang để người dùng dễ bấm trên cảm ứng */
+    .btn-submit-form {
+        width: 100% !important;
+        padding: 15px !important;
+        font-size: 16px !important;
+    }
+}

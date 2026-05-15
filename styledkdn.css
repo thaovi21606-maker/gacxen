@@ -1,0 +1,695 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.auth-container {
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 0 30px 0;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    
+    /* Thêm dòng dưới đây để căn giữa form theo chiều ngang và cách đều trên/dưới */
+    margin: 50px auto; 
+}
+
+/* Tabs */
+/* Sửa lại class .tab để có nền xám nhạt khi chưa chọn */
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #f9f9f9; /* Thêm nền xám nhạt cho tab chưa chọn */
+    transition: all 0.3s;      /* Thêm hiệu ứng chuyển màu mượt mà */
+}
+
+/* Bo góc cho tab bên trái (Đăng nhập) để khớp với khung */
+.tab:first-child {
+    border-top-left-radius: 4px;
+}
+
+/* Bo góc cho tab bên phải (Đăng ký) để khớp với khung */
+.tab:last-child {
+    border-top-right-radius: 4px;
+}
+
+/* Xóa gạch chân của cả cụm tab để màu hồng không bị đè */
+.auth-tabs {
+    display: flex;
+    border-bottom: none; 
+    margin-bottom: 20px;
+}
+
+/* Tìm đến dòng khoảng 42 trong styledkdn.css */
+.tab.active {
+    background-color: #f65385; /* Đổi nền thành màu hồng */
+    color: #fff;               /* Đổi màu chữ thành trắng */
+    border-bottom: none;       /* Bỏ gạch chân đỏ để màu hồng phủ kín */
+}
+
+/* Form */
+.auth-form {
+    padding: 0 30px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.input-group label span {
+    color: red;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ccc;
+}
+
+/* Khung bao ngoài ô mật khẩu */
+.password-wrapper {
+    position: relative;
+    display: block; /* Ngăn tình trạng bị flexbox bóp méo */
+    width: 100%;
+}
+
+/* Ép ô input bên trong full chiều ngang và chừa chỗ cho con mắt */
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px !important; /* Đẩy chữ không bị kẹt dưới con mắt */
+}
+
+/* Định vị trí con mắt nổi lên trên */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    z-index: 10; /* Nổi lên trên cùng để click được */
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    background-color: #f65385;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 25px 0 15px 0;
+    position: relative;
+    padding: 0 30px;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+    background: #eee;
+    z-index: 1;
+}
+
+.divider span {
+    background: #fff;
+    padding: 0 15px;
+    color: #999;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 30px;
+}
+
+.btn-social {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-fb {
+    background-color: #3b5998;
+}
+
+.btn-gg {
+    background-color: #ea4335;
+}
+/* --- LỚP PHỦ MỜ KHI MỞ TÌM KIẾM --- */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Đảm bảo nằm dưới sidebar nhưng trên các thành phần khác */
+    display: none; /* Ẩn mặc định */
+}
+
+/* Hiển thị lớp phủ khi có class active (được thêm bằng JS) */
+.search-overlay.active {
+    display: block;
+}
+
+
+
+
+.search-menu{
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+}
+
+.search-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.search-menu li a{
+    display: block;
+
+    width: 100%;
+
+    padding: 24px 20px;
+
+    text-decoration: none;
+
+    color: #333;
+
+    border-bottom: 1px solid #eee;
+
+    background: #fff;
+}
+.search-menu li a:hover {
+    background: #eaeaea;
+}
+
+/* sidebar */
+.search-sidebar{
+    position: fixed;
+
+    top: 0;
+    left: -100%;
+
+    width: 320px;
+
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 9999;
+
+    transition: 0.3s ease;
+
+    padding: 0;
+
+    overflow-y: auto;
+}
+
+.search-sidebar.active {
+    left: 0;
+}
+
+/* overlay */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 999;
+}
+
+.search-overlay.active {
+    display: block;
+}
+
+/* search suggestions */
+
+.search-suggestions{
+
+    position: absolute;
+
+    top: 55px;
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+    display: none;
+}
+
+/* header */
+
+.search-header{
+    position: relative;
+
+    padding: 8px;
+
+    margin: 0;
+
+    background: #e60023;
+
+    display: flex;
+
+    align-items: center;
+}
+
+/* form */
+
+#sidebarSearchForm{
+    width: 100%;
+    position: relative;
+}
+
+/* ô tìm kiếm */
+
+#sidebarSearchForm input{
+
+    width: 100%;
+    height: 40px;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 0 42px 0 16px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: white;
+}
+
+
+
+/* nút X */
+
+.close-btn{
+
+    position: absolute;
+
+    right: 8px;
+    top: 8px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #e60023;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+/* --- BỔ SUNG CHO TRANG ĐĂNG NHẬP --- */
+
+/* Quên mật khẩu */
+.forgot-password {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: -5px; /* Kéo gần lại với ô mật khẩu */
+}
+.forgot-password a {
+    color: #e53935;
+    text-decoration: none;
+    font-size: 14px;
+}
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Nút đăng nhập (Màu đen theo ảnh mẫu) */
+.submit-btn.login-btn {
+    background-color: #000;
+}
+.submit-btn.login-btn:hover {
+    background-color: #333;
+}
+
+/* Dòng cam kết bảo mật */
+.privacy-notice {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-top: 15px;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+/* --- CSS CHO HEADER (DÙNG CHUNG) --- */
+/* --- CSS CHO HEADER (DÙNG CHUNG) --- */
+.account-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Khung Submenu Tài khoản */
+.account-submenu {
+    position: absolute;
+    /* Định vị trí canh giữa so với nút Tài khoản */
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 20px); /* Nằm thấp xuống 1 chút để tạo đà trượt lên */
+    
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(246, 83, 133, 0.08); /* Đổ bóng xịn xò tone hồng nhạt */
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    width: 150px;
+    border-radius: 12px; /* Bo góc mềm mại giống ngôn ngữ */
+    border: 1px solid #fdfdfd;
+    z-index: 1000;
+    
+    /* Ẩn bằng opacity để có thể chạy hiệu ứng Animation mượt mà */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hiệu ứng trượt lên và rõ dần khi Hover */
+.account-wrapper:hover .account-submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    top: calc(100% + 5px); /* Trượt lên sát nút */
+}
+
+/* Style cho các dòng chữ bên trong */
+.account-submenu li a {
+    padding: 12px 20px;
+    display: block;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center; /* Canh giữa chữ */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột vào từng dòng (Đăng nhập / Đăng ký) */
+.account-submenu li a:hover {
+    background-color: #fff9fa; /* Nền xám pha hồng cực nhạt */
+    color: #f65385; /* Đổi màu chữ sang hồng Gác Xen */
+}
+
+.header-avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 8px;
+    object-fit: cover;
+    vertical-align: middle;
+}
+/* Tắt con mắt tự động hiện ra của trình duyệt Microsoft Edge */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+/* --- LÀM MỀM GIAO DIỆN FORM --- */
+
+/* 1. Làm mềm khung bao ngoài và bóng đổ */
+.auth-container {
+    border-radius: 20px; /* Tăng độ bo tròn cho toàn khung */
+    box-shadow: 0 10px 30px rgba(246, 83, 133, 0.08); /* Bóng đổ chuyển sang tone hồng nhạt, rộng và mờ hơn */
+    overflow: hidden; /* Giữ cho các tab bên trong không tràn ra khỏi góc bo */
+}
+
+/* 2. Style lại Tabs để mượt mà hơn */
+.auth-tabs {
+    background-color: #fff9fa; /* Nền xám pha chút hồng thật nhạt cho tổng thể tab */
+    margin-bottom: 30px;
+}
+
+.tab {
+    padding: 18px 0;
+    color: #f65385; /* Chữ màu hồng nhạt khi tab chưa được chọn */
+    background-color: transparent;
+    transition: all 0.4s ease; /* Hiệu ứng chuyển đổi màu mượt hơn */
+}
+
+.tab.active {
+    background-color: #f65385;
+    color: #fff;
+    border-radius: 0 0 20px 20px; /* Bo tròn góc dưới của tab đang active tạo độ nhấn */
+    box-shadow: 0 8px 20px rgba(246, 83, 133, 0.2); /* Thêm bóng đổ nhẹ cho riêng tab active */
+}
+
+/* 3. Làm mềm các ô Input */
+.input-group input {
+    border: 1.5px solid #f1f1f1;
+    border-radius: 12px; /* Bo tròn ô nhập liệu */
+    padding: 14px 15px;
+    background-color: #fdfdfd;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #f65385;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(246, 83, 133, 0.1); /* Hiệu ứng tỏa sáng glow nhẹ khi đang nhập chữ */
+}
+
+/* 4. Nút Submit bớt cứng nhắc */
+.submit-btn {
+    border-radius: 12px; /* Bo góc đồng bộ với ô input */
+    padding: 16px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.submit-btn.login-btn {
+    background: linear-gradient(135deg, #333333 0%, #000000 100%); /* Gradient xám đen mềm hơn đen tuyền */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn.login-btn:hover {
+    transform: translateY(-2px); /* Hiệu ứng nút bấm nảy lên nhẹ khi di chuột vào */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* 5. Chỉnh lại màu link và text ghi chú */
+.forgot-password a {
+    color: #f65385; /* Đổi sang màu hồng chủ đạo thay vì đỏ gắt */
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #d83a6b;
+}
+
+.privacy-notice {
+    color: #a0a0a0;
+}
+/* --- CHÍNH SÁCH VÀ ĐIỀU KHOẢN (ĐĂNG KÝ) --- */
+.terms-group {
+    display: flex;
+    align-items: flex-start; /* Canh lề trên trong trường hợp text dài bị xuống 2 dòng */
+    gap: 8px; /* Khoảng cách từ ô tick đến chữ */
+    margin-bottom: 20px; /* Cách nút Tạo tài khoản 1 khoảng vừa phải */
+    margin-top: 5px; 
+    font-size: 13px;
+    color: #555;
+}
+
+/* Ghi đè CSS mặc định của thẻ label trong form để nó không bị in hoa hay in đậm quá mức */
+.terms-group label {
+    cursor: pointer;
+    line-height: 1.4;
+    text-transform: none !important; 
+    font-weight: 500 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Tuỳ chỉnh ô checkbox */
+.terms-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #f65385; /* Đổi màu của dấu tick sang màu hồng đặc trưng của shop */
+    margin-top: 2px; /* Đẩy nhẹ ô tick xuống cho cân bằng với dòng chữ bên cạnh */
+}
+
+/* Style cho đoạn link điều khoản */
+.terms-group a {
+    color: #f65385;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.terms-group a:hover {
+    color: #d83a6b;
+    text-decoration: underline;
+}
+
+/* =======================================================
+   HỆ THỐNG RESPONSIVE CHO TRANG ĐĂNG NHẬP / ĐĂNG KÝ
+======================================================= */
+
+/* ---------------------------------------------------
+   1. TABLET DỌC & MOBILE LỚN (Kích thước dưới 768px)
+--------------------------------------------------- */
+@media screen and (max-width: 768px) {
+    /* Đảm bảo form không bị dính sát vào mép màn hình điện thoại */
+    .auth-container {
+        margin: 30px 15px; 
+        width: auto; 
+    }
+
+    /* Thu hẹp lề bên trong để có thêm không gian hiển thị */
+    .auth-form {
+        padding: 0 20px; 
+    }
+
+    /* Thu nhỏ chữ và khoảng cách của các tab một chút */
+    .tab {
+        padding: 14px 0;
+        font-size: 14px; 
+    }
+
+    /* Căn chỉnh lại khoảng cách của thanh chia cắt (Hoặc đăng nhập bằng) */
+    .divider {
+        padding: 0 20px;
+    }
+
+    .divider::before {
+        left: 20px;
+        right: 20px;
+    }
+
+    .social-login {
+        padding: 0 20px;
+    }
+}
+
+/* ---------------------------------------------------
+   2. ĐIỆN THOẠI MÀN HÌNH NHỎ (Kích thước dưới 480px)
+--------------------------------------------------- */
+@media screen and (max-width: 480px) {
+    .auth-container {
+        margin: 20px 10px; 
+        border-radius: 15px; /* Giảm độ bo góc một chút để không lẹm viền màn hình nhỏ */
+    }
+
+    .auth-form {
+        padding: 0 15px;
+    }
+
+    /* Chuyển 2 nút Đăng nhập Facebook/Google thành hàng dọc cho ngón tay dễ bấm */
+    .social-login {
+        flex-direction: column; 
+        padding: 0 15px;
+        gap: 12px;
+    }
+
+    .btn-social {
+        padding: 12px 0; /* Làm nút to ra một chút để dễ thao tác */
+    }
+
+    .divider {
+        padding: 0 15px;
+    }
+
+    .divider::before {
+        left: 15px;
+        right: 15px;
+    }
+
+    /* Tối ưu chữ cho điều khoản */
+    .terms-group {
+        font-size: 12px;
+    }
+}

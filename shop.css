@@ -1,0 +1,1234 @@
+/* ========================================= */
+/* SHOP - HIỂN THỊ SẢN PHẨM */
+/* ========================================= */
+
+.shop-section {
+    padding: 30px 0 50px;
+}
+
+/* 1. Cấu hình khung chứa danh sách sản phẩm */
+.shop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20px;       /* Khoảng cách giữa các sản phẩm */
+    justify-content: flex-start; /* Căn trái các mục trong hàng */
+    padding: 20px 0;
+}
+/* 2. Cấu hình từng thẻ sản phẩm */
+.shop-item {
+    width: calc(33.333% - 14px); 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+    transition: 0.3s;
+    position: relative;
+}
+.shop-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* 3. Đảm bảo ảnh luôn nằm trên cùng và chuẩn kích thước */
+.shop-item img {
+    width: 100%;
+    max-width: 200px; /* Điều chỉnh tùy kích thước ảnh của bạn */
+    height: auto;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+/* 4. Căn chỉnh tiêu đề và giá */
+.shop-item h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    min-height: 48px; /* Giữ cho các tiêu đề đều nhau nếu tên sách dài */
+    color: #333;
+}
+.shop-price {
+    color: #ff4d6d;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* GIÁ CŨ */
+.shop-price-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.shop-old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 13px;
+}
+
+/* NÚT */
+.shop-item button {
+
+    margin-top: 0;
+
+    width: 100%;
+    padding: 8px;
+
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color);
+    color: #fff;
+
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.shop-sold{
+    margin-bottom: 14px;
+}
+.rating{
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+.rating i{
+    color: gold;
+}
+
+.score{
+    color: #666;
+    margin-left: 4px;
+}
+
+.sold-count{
+    color: #777;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* HOVER: chữ chuyển CAM */
+.shop-item button:hover {
+    background: #fff;          /* nền trắng */
+    color: orange;             /* chữ cam */
+    border: 1px solid orange;  /* viền cam cho đẹp */
+}
+
+/* ========================================= */
+/* CSS CHO TRANG CHI TIẾT SẢN PHẨM */
+/* ========================================= */
+
+#product-detail {
+    padding: 30px 0;
+    background-color: #fff;
+    min-height: 600px;
+}
+
+/* Nút quay lại */
+.back-btn {
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #e0e0e0;
+    color: #d32f2f;
+}
+
+/* Container chính chia 2 cột */
+.product-detail-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Cột trái (Ảnh) */
+.detail-left {
+    flex: 1;
+    position: sticky;
+    top: 100px; /* Ảnh sẽ trượt theo khi cuộn trang */
+}
+
+.detail-left img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Cột phải (Thông tin) */
+.detail-right {
+    flex: 1.5;
+}
+
+.detail-right h2 {
+    font-size: 26px;
+    color: #333;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+/* Danh sách thông tin (Tác giả, NXB...) */
+.info-list {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    line-height: 1.8;
+}
+
+.info-list p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.info-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Nút thêm vào giỏ hàng */
+.add-to-cart-btn {
+    background-color: #d32f2f !important; /* Màu đỏ đậm */
+    color: white !important;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #b71c1c !important;
+    transform: scale(1.02);
+}
+
+/* Ô nhập số lượng */
+input[type="text"] {
+    outline: none;
+}
+
+
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: linear-gradient(135deg, #ff3b6b, #ff0055);
+    color: white;
+
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 13px;
+
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(255, 0, 85, 0.4);
+
+    z-index: 10;
+
+    opacity: 1; /* luôn hiện */
+}
+
+.search-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.search-menu li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    background: #f5f5f5;
+}
+
+.search-menu li a:hover {
+    background: #eaeaea;
+}
+
+
+/* sidebar */
+.search-sidebar{
+    position: fixed;
+
+    top: 0;
+    left: -320px;
+
+    width: 320px;
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 9999;
+
+    transition: 0.3s ease;
+
+    overflow-y: auto;
+}
+
+.search-sidebar.active {
+    left: 0;
+}
+
+/* overlay */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 999;
+}
+
+.search-overlay.active {
+    display: block;
+}
+
+
+
+.search-header input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+}
+
+.search-header i {
+    color: white;
+}
+
+
+/* menu */
+.search-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-menu li a {
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+.search-menu li a:hover {
+    background: #f5f5f5;
+}
+
+
+.category-title {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+img[src*="banner"] {
+    display: block;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+
+/* của all sanpham*/
+.banner-allsp {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.category-banner {
+    margin-top: 20px;
+}
+
+.category-title {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+/* ========================================= */
+/* THANH SẮP XẾP SẢN PHẨM (CUSTOM XỊN)       */
+/* ========================================= */
+.sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 30px 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.sort-bar select {
+    padding: 10px 35px 10px 18px; /* Tăng padding cho nút to ra, chừa chỗ cho mũi tên */
+    border-radius: 30px; /* Bo tròn mạnh tay hơn */
+    border: 2px solid #eee; /* Viền xám nhạt nhẹ nhàng */
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Đổ bóng nhẹ cho nút nổi lên */
+    
+    /* Ẩn mũi tên xấu xí mặc định của trình duyệt */
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Thay bằng mũi tên SVG màu hồng chủ đạo của Gác Xen */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff4d6d%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 10px auto;
+}
+
+/* Hiệu ứng khi rê chuột hoặc bấm vào: Đổi viền hồng và phát sáng */
+.sort-bar select:hover, 
+.sort-bar select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(231, 121, 141, 0.15);
+}
+
+/* 1. Bố cục tổng thể 2 cột phía trên */
+.product-top-section {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 50px;
+    align-items: flex-start;
+}
+
+.product-gallery { flex: 1; }
+.product-gallery img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-main-info { flex: 1; }
+.product-title { font-size: 32px; margin-bottom: 15px; color: #333; }
+.current-price { font-size: 28px; color: #ff4d6d; font-weight: bold; }
+.btn-buy-now {
+    margin-top: 25px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 2. Hệ thống Tab (Giống ảnh mẫu) */
+.tabs-wrapper {
+    margin-top: 40px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tab-header {
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #eee;
+
+    overflow: hidden;
+}
+.tab-btn:not(.active):hover {
+    background: #ececec;
+}
+
+/* TAB BUTTON */
+
+.tab-btn {
+
+    min-width: 150px;   
+    height: 50px;       
+    padding: 0 24px;
+
+    font-size: 14px;    
+    font-weight: 600;
+
+    border: none;
+    cursor: pointer;
+
+    background: #f5f5f5;
+    color: #333;
+
+    transition: 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Khi tab được nhấn (Active) - Chuyển vàng */
+.tab-btn.active {
+    background: #f1c40f !important;
+    color: white !important;
+
+    padding: 18px 40px;
+
+    border-radius: 0;
+}
+/* Cho phép ô số lượng có thể nhập trực tiếp */
+.quantity-input input {
+    width: 45px;
+    height: 35px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    font-weight: bold;
+    outline: none;
+}
+
+.tab-body { padding: 30px; min-height: 200px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* 3. Định dạng Form đánh giá */
+.review-form h3 { margin-bottom: 20px; font-size: 22px; }
+.review-input, .review-select, .review-textarea {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: block;
+}
+.review-textarea { height: 120px; resize: none; }
+.btn-submit-review {
+    background: #f1c40f;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ========================================= */
+/* BỔ SUNG CHI TIẾT SẢN PHẨM (PHẦN THÂN) */
+/* ========================================= */
+
+/* Container giá tiền và giảm giá */
+.price-container-box {
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 18px;
+}
+
+.discount-percent {
+    background: #ff4d6d;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Thông tin Meta (Thương hiệu, tình trạng) */
+.product-meta {
+    margin-bottom: 25px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.product-meta p {
+    margin-bottom: 8px;
+}
+
+.meta-value {
+    margin-left: 10px;
+    color: #333;
+}
+
+/* Phần chọn số lượng */
+.quantity-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.qty-btn {
+    background: #f1f1f1;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.qty-btn:hover {
+    background: #e0e0e0;
+}
+
+/* Nhóm nút hành động */
+.action-group-buttons .btn-outline-cart {
+    background: #fff;
+    color: #ff4d6d;
+    border: 1px solid #ff4d6d;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.action-group-buttons .btn-outline-cart:hover {
+    background: #fff0f3;
+}
+
+.action-group-buttons .btn-solid-buy {
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.action-group-buttons .btn-solid-buy:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Styling cho nội dung mô tả sản phẩm (Tab Body) */
+.product-content-area {
+    line-height: 1.8;
+    color: #444;
+    font-size: 16px;
+}
+
+.product-content-area strong {
+    color: #333;
+}
+
+/* Đánh giá sao */
+.rating-sold {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars {
+    color: #f1c40f;
+    font-size: 18px;
+}
+
+.count-rating {
+    color: #777;
+    font-size: 14px;
+}
+/* Ẩn mũi tên cho Chrome, Safari, Edge, Opera */
+input#soluong::-webkit-outer-spin-button,
+input#soluong::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Ẩn mũi tên cho Firefox */
+input#soluong[type=number] {
+  -moz-appearance: textfield;
+  border: none; /* Bỏ viền mặc định để khớp với giao diện của bạn */
+  outline: none;
+}
+/* 3. Đảm bảo ảnh luôn nằm trên cùng và chuẩn kích thước */
+/* ========================================= */
+/* ÉP KHUÔN SẢN PHẨM NGAY HÀNG THẲNG LỐI */
+/* ========================================= */
+/* ========================================= */
+/* ÉP KHUÔN SẢN PHẨM NGAY HÀNG THẲNG LỐI */
+/* ========================================= */
+.shop-item {
+    cursor: pointer; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Gỡ bỏ lệnh kéo giãn khoảng cách */
+}
+
+/* 1. Ép ảnh bằng nhau */
+.shop-item img {
+    height: 200px !important;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* 2. ÉP KHUÔN TIÊU ĐỀ: Cố định độ cao đúng 54px (chuẩn 2 dòng chữ) */
+.shop-item h3 {
+    height: 54px !important; /* Quan trọng: Dù chữ 1 dòng hay 2 dòng cũng chiếm đúng 54px */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+/* Đảm bảo khung giá tiền luôn đều nhau */
+.shop-price-box {
+    min-height: 30px;
+}
+
+/* 3. Đẩy nút Mua ngay luôn bám sát đáy thẻ */
+.shop-item .buy-btn, .shop-item button {
+    margin-top: auto !important; 
+    width: 100%;
+    z-index: 2; 
+    position: relative;
+}
+
+.shop-price {
+    min-height: 25px;
+}
+.shop-price-row {
+    min-height: 20px;
+}
+/* ⭐ CHÌA KHÓA */
+.shop-item button {
+    margin-top: auto;
+}
+
+/* ========================= */
+/* SÁCH CÙNG THỂ LOẠI */
+/* ========================= */
+
+.related-books {
+    margin-top: 60px;
+}
+
+.related-title {
+    background-color: #ffffff; /* Nền trắng */
+    color: var(--primary-color); /* Chữ màu hồng chủ đạo */
+    border: 2px solid #ffe1e8; /* Viền màu hồng nhạt */
+    
+    display: inline-block; /* Ép khung ôm sát vừa vặn với chữ */
+    margin: 0 0 30px 0; /* Số 0 đầu tiên ép sát lề trái, 30px là khoảng cách với SP bên dưới */
+    padding: 12px 35px; /* Khoảng cách chữ tới viền */
+    
+    border-radius: 50px; /* Bo tròn mạnh 2 đầu giống hình viên thuốc */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* Hiệu ứng phát sáng mờ (glow) màu hồng xung quanh nút */
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.25); 
+}
+.related-title::before {
+    content: '\f518'; /* Icon quyển sách mở (book-open) */
+    font-family: 'Font Awesome 6 Free', 'FontAwesome';
+    font-weight: 900;
+    margin-right: 10px;
+}
+.related-title::after {
+    content: '✨'; /* Ký tự lấp lánh */
+    margin-left: 10px;
+}
+
+
+.related-books .shop {
+    justify-content: flex-start; /* Ép các sản phẩm dàn từ trái sang phải */
+}
+/* ========================= */
+/* REVIEW KHÁCH HÀNG */
+/* ========================= */
+
+#review-list {
+    margin-top: 30px;
+}
+
+.review-item {
+    border-top: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.review-star {
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+.review-content {
+    color: #555;
+    line-height: 1.7;
+}
+/* ngày đánh giá */
+.review-date {
+    font-size: 13px;
+    color: #999;
+    margin-top: 4px;
+}
+/* ========================= */
+/* SEARCH SUGGESTIONS */
+/* ========================= */
+
+.search-bar form{
+    position: relative;
+}
+
+.search-suggestions{
+
+    position: absolute;
+
+    top: 55px;
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+    display: none;
+}
+.search-header form{
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.search-suggestions a{
+
+    display: block;
+
+    padding: 12px 15px;
+
+    text-decoration: none;
+
+    color: #333;
+
+    border-bottom: 1px solid #eee;
+
+    transition: 0.2s;
+}
+
+.search-suggestions a:hover{
+    background: #f5f5f5;
+    color: #ff4d6d;
+}
+
+
+
+.suggest-item{
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+
+}
+.search-header{
+    position: relative;
+    padding: 8px;
+    background: #e60023;
+
+    display: flex;
+    align-items: center;
+}
+
+/* form */
+#sidebarSearchForm{
+    width: 100%;
+    position: relative;
+}
+
+/* ô tìm kiếm */
+#sidebarSearchForm input{
+
+    width: 100%;
+    height: 40px;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 0 42px 0 16px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: white;
+}
+
+/* nút kính */
+.search-btn{
+
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #999;
+
+    font-size: 15px;
+}
+
+/* nút X */
+.close-btn{
+
+    position: absolute;
+
+    right: 8px;
+    top: 8px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #e60023;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.suggest-item:hover{
+    background: #f5f5f5;
+
+}
+
+/* =========================
+GOOGLE TRANSLATE FIX
+========================= */
+
+.goog-te-banner-frame.skiptranslate{
+    display:none !important;
+}
+
+body{
+    top:0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span{
+    display:none !important;
+}
+
+.goog-te-gadget{
+    font-size:0 !important;
+}
+/* ========================================= */
+/* TIÊU ĐỀ FLASH SALE BO TRÒN PHÁT SÁNG      */
+/* ========================================= */
+.flashsale-title-box {
+    background-color: #ffffff;
+    color: var(--primary-color) !important; /* Ép chữ thành màu hồng Gác Xen */
+    border: 2px solid #ffe1e8;
+    
+    display: inline-block; /* Ép khung ôm vừa vặn chữ */
+    padding: 15px 40px;
+    border-radius: 50px; /* Bo tròn 2 đầu */
+    
+    font-size: 26px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    
+    /* Hiệu ứng bóng mờ phát sáng */
+    box-shadow: 0 0 18px rgba(255, 77, 109, 0.3);
+}
+
+/* =======================================================
+   RESPONSIVE - TRANG TẤT CẢ SẢN PHẨM (CHỈ CHẠY TRÊN MOBILE)
+======================================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. THU NGẮN THANH SẮP XẾP */
+    .sort-bar {
+        flex-direction: row !important; /* Ép chữ và nút nằm ngang lại */
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    
+    .sort-bar select {
+        width: auto !important; /* Trả lại sự tự do, không phình 100% nữa */
+        min-width: 130px !important; /* Rộng vừa đủ đẹp */
+        padding: 8px 30px 8px 15px !important; /* Giảm độ phồng của nút */
+    }
+
+    /* 2. CHIA 2 SẢN PHẨM TRÊN 1 DÒNG (CHỐNG TRÀN CHỮ) */
+    .shop {
+        gap: 15px !important; /* Thu hẹp khoảng cách giữa các thẻ một chút */
+    }
+
+    .shop-item {
+        /* Chia đôi không gian trừ đi khoảng hở giữa 2 cột */
+        width: calc(50% - 7.5px) !important; 
+        padding: 10px !important; 
+    }
+    
+    .shop-item img {
+        height: 160px !important; /* Hạ chiều cao ảnh xuống cho cân đối trên điện thoại */
+    }
+
+    .shop-item h3 {
+        font-size: 13px !important; /* Thu nhỏ tên sách */
+        height: 40px !important; /* Chỉ cho phép hiển thị tối đa 2 dòng */
+        margin-bottom: 5px !important;
+    }
+
+    /* 3. XỬ LÝ KHỐI GIÁ TIỀN ĐỂ KHÔNG ĐÂM VÀO NHAU */
+    .shop-price-box {
+        flex-direction: column !important; /* Đẩy giá cũ rớt xuống dưới giá mới */
+        gap: 2px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .shop-price {
+        font-size: 15px !important; /* Thu nhỏ giá chính */
+        margin-bottom: 0 !important;
+    }
+    
+    .shop-old-price {
+        font-size: 12px !important;
+    }
+
+    /* 4. CHỈNH NGÔI SAO VÀ ĐÃ BÁN */
+    .rating {
+        font-size: 12px !important;
+    }
+    
+    .sold-count {
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .shop-item button {
+        padding: 10px !important; /* Nút mua to ra một chút để dễ bấm */
+        font-size: 13px !important;
+    }
+}
+/* =======================================================
+   FIX LỖI TỈ LỆ TRANG CHI TIẾT SẢN PHẨM & SÁCH CÙNG THỂ LOẠI (MOBILE)
+======================================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Ép bố cục Chi tiết sản phẩm thành 1 cột dọc (Ảnh trên, chữ dưới) */
+    .product-detail-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+
+    /* 2. Phóng to hình ảnh sách và canh giữa */
+    .detail-left {
+        width: 100% !important;
+        max-width: 320px !important; /* Khống chế độ to vừa phải, không bị tràn viền */
+        margin: 0 auto !important;
+    }
+    
+    .detail-left img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* 3. Thu nhỏ chữ Tiêu đề sách và canh giữa cho cân đối */
+    .detail-right {
+        width: 100% !important;
+        text-align: center !important; /* Canh giữa chữ trên mobile nhìn sẽ sang hơn */
+    }
+
+    .detail-right h2 {
+        font-size: 22px !important; /* Thu nhỏ chữ tên sách lại */
+        line-height: 1.4 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Canh giữa cụm giá tiền và thông tin tác giả/NXB */
+    .price-container-box {
+        justify-content: center !important;
+        margin: 15px 0 !important;
+    }
+    
+    .product-meta {
+        text-align: center !important;
+    }
+
+    /* Canh giữa cụm nút Tăng/Giảm số lượng */
+    .quantity-section {
+        justify-content: center !important;
+    }
+
+    /* 4. XỬ LÝ KHUNG "SÁCH CÙNG THỂ LOẠI" (Chống rớt dòng) */
+    .related-title {
+        font-size: 14px !important; /* Thu nhỏ chữ */
+        padding: 10px 20px !important; /* Ép viền nhỏ lại */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important; /* Lệnh thần thánh: TUYỆT ĐỐI CẤM RỚT DÒNG */
+        width: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* Thu nhỏ luôn 2 icon 2 bên cho cân xứng với chữ */
+    .related-title::before {
+        font-size: 14px !important;
+        margin-right: 8px !important;
+    }
+    
+    .related-title::after {
+        font-size: 14px !important;
+        margin-left: 8px !important;
+    }
+}
+/* =======================================================
+   FIX TỈ LỆ CHI TIẾT SẢN PHẨM: ẢNH BỰ - CHỮ NHỎ - 1 CỘT
+======================================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. ÉP BUỘC XẾP DỌC 1 CỘT CHO MỌI CLASS CHỨA NỘI DUNG */
+    .product-detail-container,
+    .product-top-section {
+        display: flex !important;
+        flex-direction: column !important; /* Lệnh gãy cột sống còn */
+        align-items: center !important;
+        padding: 0 10px !important;
+        gap: 15px !important;
+    }
+
+    /* 2. ÉP ẢNH TO RA, NẰM CHÍNH GIỮA MÀN HÌNH */
+    .detail-left,
+    .product-gallery {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+        top: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .detail-left img,
+    .product-gallery img {
+        width: 85% !important; /* To ra chiếm 85% màn hình điện thoại */
+        max-width: 380px !important; /* Tăng giới hạn độ to tối đa */
+        height: auto !important;
+        object-fit: cover !important;
+        margin: 0 auto 15px auto !important;
+    }
+
+    /* 3. THU NHỎ TOÀN BỘ PHẦN CHỮ & ĐẨY XUỐNG DƯỚI ẢNH */
+    .detail-right,
+    .product-main-info {
+        width: 100% !important;
+        text-align: center !important; /* Canh giữa văn bản cho sang trọng */
+        padding: 0 !important;
+    }
+
+    /* Thu nhỏ tiêu đề sách */
+    .detail-right h2,
+    .product-title {
+        font-size: 19px !important; /* Bóp nhỏ chữ lại */
+        line-height: 1.4 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Thu nhỏ tác giả, NXB, Tình trạng */
+    .product-meta,
+    .info-list {
+        font-size: 13px !important; /* Nhỏ lại cho gọn */
+        margin-bottom: 15px !important;
+    }
+
+    /* Thu hẹp khung giá tiền và canh giữa */
+    .price-container-box {
+        justify-content: center !important;
+        padding: 10px !important;
+        margin: 10px auto 20px auto !important;
+        max-width: 300px !important; /* Ôm gọn giá tiền, không bè ra 2 bên */
+    }
+    
+    /* Thu nhỏ giá tiền */
+    .current-price {
+        font-size: 22px !important; 
+    }
+    .old-price {
+        font-size: 14px !important; 
+    }
+    
+    /* Canh giữa phần chọn Số lượng */
+    .quantity-section {
+        justify-content: center !important;
+        margin-bottom: 20px !important;
+    }
+}

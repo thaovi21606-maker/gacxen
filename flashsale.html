@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash sale</title>
+
+   <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="searchOverlay" class="search-overlay"></div>
+
+<div id="searchSidebar" class="search-sidebar">
+    
+    <div class="search-header">
+            <form id="sidebarSearchForm">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm" autocomplete="off">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="searchSuggestions"
+                class="search-suggestions"></div>
+
+            </form>
+
+            <span class="close-btn"
+            onclick="closeSearch()">✕</span>
+
+        </div>
+ <ul class="search-menu">
+    <ul class="search-menu">
+    <li><a href="category-tatcasanpham.html?category=kinhte">Sách kinh tế - tài chính</a></li>
+    <li><a href="category-tatcasanpham.html?category=vanhoc">Sách văn học</a></li>
+    <li><a href="category-tatcasanpham.html?category=tamly">Sách tâm lý - kỹ năng</a></li>
+    <li><a href="category-tatcasanpham.html?category=khoahoc">Sách khoa học - giáo dục</a></li>
+</ul>
+</ul>
+
+</div>
+
+    <div class="top-bar">
+        <div class="marquee-container">
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+            </div>
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+            </div>
+        </div>
+    </div>
+
+<!-- ===== HEADER (GIỮ NGUYÊN) ===== -->
+    <header class="header">
+        <div class="container header-main">
+            <div class="logo">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách"></a>
+            </div>
+            
+            <div class="search-bar">
+                <form id="searchForm" action="sanpham.html" method="GET">
+                     <input type="text" onclick="openSearch()" readonly placeholder="Cần sách gì tìm ở đây nhé!">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+<div class="user-actions">
+            <div class="account-wrapper">
+                <a href="dangnhap.html" id="btn-account-header" class="action-btn">
+                    <i class="fas fa-user"></i> 
+                    <span>Tài khoản</span>
+                </a>
+                <ul class="account-submenu" id="accountSubmenu">
+                    <li><a href="dangnhap.html">Đăng nhập</a></li>
+                    <li><a href="dangky.html">Đăng ký</a></li>
+                </ul>
+            </div>
+<a href="donhang.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-box"></i> <span>Đơn hàng</span></a>
+
+<a href="yeuthich.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-heart"></i> <span>Yêu thích <span id="favCount" class="cart-count">0</span></span></a>
+
+<a href="giohang.html" onclick="return window.requireLogin();" class="action-btn cart-btn">
+    <i class="fas fa-shopping-bag"></i> 
+    <span>Giỏ hàng <span id="cartCount" class="cart-count">0</span></span>
+</a>
+                
+                <div class="lang-dropdown">
+    <a href="#" class="action-btn lang-btn notranslate" translate="no">
+        <img src="../img/vn-flag.jpg" alt="VN" class="flag-icon"> 
+        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </a>
+    
+    <ul class="dropdown-menu lang-menu notranslate" translate="no">
+        <li>
+            <a href="#" onclick="changeLanguage('vi')">
+                <img src="../img/vn-flag.jpg" alt="Tiếng Việt" class="flag-icon">
+                <span translate="no">VN</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="changeLanguage('en')">
+                <img src="../img/en-flag.jpg" alt="Tiếng Anh" class="flag-icon">
+                <span translate="no">EN</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                  <li><a href="homepage.html" class="lang-home">Trang chủ</a></li>
+                    <li class="dropdown">
+    <a href="category-tatcasanpham.html">Sản phẩm</a>
+    <ul class="dropdown-menu">
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                        </ul>
+    </li>
+
+</li> 
+
+
+<li><a href="flashsale.html" onclick="showFlashSale(); return false;">Flashsale</a></li>
+                    <li><a href="gioithieu.html">Giới thiệu</a></li>
+<li><a href="lienhe.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+<div class="banner-slider-wrapper">
+    <div class="banner-slider" id="bannerSlider">
+        <div class="slide"><img src="../img/banner1.png"></div>
+        <div class="slide"><img src="../img/banner9.png"></div>
+        <div class="slide"><img src="../img/banner3.png"></div>
+    </div>
+
+    <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+    <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="slider-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+    </div>
+</div>
+  
+
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+</div>
+
+    </div>
+</section><br>
+<!-- ===== MAIN ===== -->
+<main class="container">
+
+ <div class="flashsale-header" style="text-align:center; margin: 30px 0 40px 0;">
+    <h2 class="flashsale-title-box">⚡ FLASH SALE SÁCH HOT ⚡</h2>
+    
+    <h3 style="color: #666; margin-top: 15px; font-size: 18px;">SALE NGẬP TẤT CẢ SẢN PHẨM</h3>
+    
+    <div class="timer" style="font-size:20px; font-weight:bold; margin-top: 20px;">
+        Kết thúc trong:
+<div class="countdown">
+    <span class="time-box" id="hours">02</span>
+    <span class="colon">:</span>
+    <span class="time-box" id="minutes">59</span>
+    <span class="colon">:</span>
+    <span class="time-box" id="seconds">59</span>
+</div>
+    </div>
+</div>
+
+<div class="sort-bar">
+    <span>Sắp xếp:</span>
+    <select id="sortSelect">
+        <option value="default">Mặc định</option>
+        <option value="name-asc">Tên A-Z</option>
+        <option value="name-desc">Tên Z-A</option>
+        <option value="price-asc">Giá tăng dần</option>
+        <option value="price-desc">Giá giảm dần</option>
+    </select>
+</div>
+    <!--  DANH SÁCH SÁCH -->
+    <section class="shop" id="shop-list">
+ 
+ 
+<!-- 1 -->
+<div class="shop-item" data-category="kinhte">
+    <span class="discount-badge">-20%</span>
+    <img src="../img/Combo-Toi-Uu-Loi-Nhuan-amp-Doanh-Thu-Profit-First-Dung-Ban-San-Pham-Hay-Ban-Giai-Phap.jpg">
+    <h3>Combo tối ưu lợi nhuận và doanh thu: Profit First + Đừng Bán Sản Phẩm Hãy Bán Giải Pháp</h3>
+    <div class="shop-price-box">
+    <p class="shop-price">334,400đ</p>
+    <span class="shop-old-price">418,000đ</span>
+</div>
+     <!-- SAO ĐÁNH GIÁ -->
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+
+        <span class="score">(4.7)</span>
+    </div>
+
+    <!-- ĐÃ BÁN -->
+    <p class="sold-count">
+        Đã bán: 963
+    </p>
+
+    <button class="buy-btn" onclick="location.href='product-detail.html?id=sp1'">Mua ngay</button>
+</div>
+
+<!-- 2 -->
+<div class="shop-item" data-category="kinhte">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Nhan-Dan-Quyen-Luc-Va-Loi-Nhuan-Joseph-E-Stiglitz-NXB-Tri-Thuc.jpg">
+
+    <h3>Nhân dân quyền lực và lợi nhuận</h3>
+
+    <!-- GIÁ NẰM NGANG -->
+    <div class="shop-price-box">
+        <p class="shop-price">199,750đ</p>
+        <span class="shop-old-price">235,000đ</span>
+    </div>
+
+    <!-- ĐÁNH GIÁ -->
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.8)</span>
+    </div>
+
+    <!-- ĐÃ BÁN -->
+    <p class="sold-count">Đã bán: 1.2k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=sp2'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 3 -->
+<div class="shop-item" data-category="kinhte">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Cong-Thuc-Tech-Biz-Chien-Luoc-Marketing-Cho-Thi-Truong-Cong-Nghe-Nghe-Thuat-Thiet-Ke-Game.jpg">
+
+    <h3>Combo chiến Lược Marketing Công Nghệ + Nghệ Thuật Thiết Kế Game</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">542,400đ</p>
+        <span class="shop-old-price">678,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(5.0)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 845</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=sp3'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 4 -->
+<div class="shop-item" data-category="kinhte">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Combo-Tu-Duy-Trieu-Phu-Tu-Than-Thay-Doi-Ti-Hon-R-I-C-H-Mua-Ban-Doanh-Nghiep.jpg">
+
+    <h3>Combo Tư Duy Kiếm Tiền - Thay Đổi Tí Hon + R.I.C.H Mua Bán Doanh Nghiệp</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">295,800đ</p>
+        <span class="shop-old-price">348,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.6)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 2.1k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=sp4'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 5 -->
+<div class="shop-item" data-category="kinhte">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Tinh-Than-Nghiep-Chu-Eamonn-Butler-NXB-Tri-Thuc.jpg">
+
+    <h3>Tinh Thần Nghiệp Chủ - Eamonn Butler</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">96,000đ</p>
+        <span class="shop-old-price">120,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(4.9)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 3.4k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=sp5'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 6 -->
+<div class="shop-item" data-category="kinhte">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/tai-chinh-doanh-nghiep.jpg">
+
+    <h3>Tài chính doanh nghiệp</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">472,600đ</p>
+        <span class="shop-old-price">556,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.7)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 324</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=sp6'">
+        Mua ngay
+    </button>
+</div>
+
+
+
+<div class="shop-item" data-category="khoahoc">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Su-Ra-Doi-Tri-Khon-O-Tre-Em-Jean-Piaget-NXB-Tri-Thuc.jpg">
+
+    <h3>Sự ra đời trí khôn ở trẻ em</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">212,000đ</p>
+        <span class="shop-old-price">265,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.7)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.1k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=kh1'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 2 -->
+<div class="shop-item" data-category="khoahoc">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Triet-Hoc-Cua-Giao-Duc-Richard-Pring-NXB-Tri-Thuc.jpg">
+
+    <h3>Triết học của giáo dục</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">184,000đ</p>
+        <span class="shop-old-price">230,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(5.0)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 894</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=kh2'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 3 -->
+<div class="shop-item" data-category="khoahoc">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/1000 Bo-nao-ly-thuyet-moi-ve-tri-tue-con-nguoi.jpg">
+
+    <h3>1000 bộ não - Lý thuyết mới về trí tuệ con người</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">320,000đ</p>
+        <span class="shop-old-price">400,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.8)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 2k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=kh3'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 4 -->
+<div class="shop-item" data-category="khoahoc">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/mot-goc-nhin-ve-tien-hoa-van-hoa.jpg">
+
+    <h3>Một góc nhìn về tiến hóa văn hóa</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">161,500đ</p>
+        <span class="shop-old-price">190,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.6)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 730</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=kh4'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 5 -->
+<div class="shop-item" data-category="khoahoc">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/xay-dung-truong-hoc-hanh-phuc-con-duong-toi-di.jpg">
+
+    <h3>Xây dựng trường học hạnh phúc</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">187,000đ</p>
+        <span class="shop-old-price">220,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(4.9)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.5k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=kh5'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 6 -->
+<div class="shop-item" data-category="khoahoc">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Hoi-ky-nguoi-thay-xay-truong-hanh-phuc.jpg">
+
+    <h3>Hồi ký người thầy xây trường hạnh phúc</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">208,250đ</p>
+        <span class="shop-old-price">245,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.7)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 976</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=kh6'">
+        Mua ngay
+    </button>
+</div>
+
+
+<!-- 1 -->
+<div class="shop-item" data-category="tamly">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Tu-duy-nhanh-va-cham.jpg">
+
+    <h3>Tư duy nhanh và chậm</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">212,000đ</p>
+        <span class="shop-old-price">265,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.7)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.7k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=tl1'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 2 -->
+<div class="shop-item" data-category="tamly">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Thuat-Ngu-Tam-Li-Hoc-Anh-Viet-Duc-Phap.jpg">
+
+    <h3>Thuật ngữ tâm lý học Anh - Việt - Đức - Pháp</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">340,000đ</p>
+        <span class="shop-old-price">400,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(5.0)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 962</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=tl2'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 3 -->
+<div class="shop-item" data-category="tamly">
+    <span class="discount-badge">-30%</span>
+
+    <img src="../img/Lieu-Phap-Tam-Li-Tri-Lieu-Chien-Luoc-Jay-Haley-amp-Madeleine.jpg">
+
+    <h3>Liệu pháp tâm lý trị liệu chiến lược</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">161,000đ</p>
+        <span class="shop-old-price">230,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.8)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 2.3k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=tl3'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 4 -->
+<div class="shop-item" data-category="tamly">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Flashcard-Tu-Duy-Lanh-Dao.jpg">
+
+    <h3>Flashcard tư duy lãnh đạo</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">152,000đ</p>
+        <span class="shop-old-price">190,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(4.9)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.4k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=tl4'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 5 -->
+<div class="shop-item" data-category="tamly">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Tu-duy-phan-bien-nhu-mot-luat-su.jpg">
+
+    <h3>Tư duy phản biện như một luật sư</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">182,750đ</p>
+        <span class="shop-old-price">215,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.6)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 876</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=tl5'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 6 -->
+<div class="shop-item" data-category="tamly">
+    <span class="discount-badge">-30%</span>
+
+    <img src="../img/Combo-lieu-phap-tam-hon-lap-day-trong-rong-thien-tri-thuc.jpg">
+
+    <h3>Combo liệu pháp tâm hồn lấp đầy trống rỗng</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">245,000đ</p>
+        <span class="shop-old-price">350,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(5.0)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 3.1k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=tl6'">
+        Mua ngay
+    </button>
+</div>
+
+ <!-- 1 -->
+<div class="shop-item" data-category="vanhoc">
+    <span class="discount-badge">-30%</span>
+
+    <img src="../img/Thu-cho-em.jpg">
+
+    <h3>Thư cho em</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">105,000đ</p>
+        <span class="shop-old-price">150,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.7)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.9k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=vh1'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 2 -->
+<div class="shop-item" data-category="vanhoc">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Vi-cau-la-ban-nho-cua-to.jpg">
+
+    <h3>Vì cậu là bạn nhỏ của tớ</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">136,000đ</p>
+        <span class="shop-old-price">170,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(5.0)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 2.4k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=vh2'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 3 -->
+<div class="shop-item" data-category="vanhoc">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Vong-tay-hoc-tro.jpg">
+
+    <h3>Vòng tay học trò</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">119,000đ</p>
+        <span class="shop-old-price">140,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.8)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.2k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=vh3'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 4 -->
+<div class="shop-item" data-category="vanhoc">
+    <span class="discount-badge">-30%</span>
+
+    <img src="../img/Vui-ve-khong-quau-nha.jpg">
+
+    <h3>Vui vẻ không quạu nha</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">84,000đ</p>
+        <span class="shop-old-price">120,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="score">(4.9)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 3k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=vh4'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 5 -->
+<div class="shop-item" data-category="vanhoc">
+    <span class="discount-badge">-20%</span>
+
+    <img src="../img/Phai-long-voi-co-don.jpg">
+
+    <h3>Phải lòng với cô đơn</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">144,000đ</p>
+        <span class="shop-old-price">180,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.6)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 980</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=vh5'">
+        Mua ngay
+    </button>
+</div>
+
+<!-- 6 -->
+<div class="shop-item" data-category="vanhoc">
+    <span class="discount-badge">-15%</span>
+
+    <img src="../img/Cuoc-doi-ngan-lam-dung-om-muon-phien.jpg">
+
+    <h3>Cuộc đời ngắn lắm đừng ôm muộn phiền</h3>
+
+    <div class="shop-price-box">
+        <p class="shop-price">170,000đ</p>
+        <span class="shop-old-price">200,000đ</span>
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="score">(4.7)</span>
+    </div>
+
+    <p class="sold-count">Đã bán: 1.6k</p>
+
+    <button class="buy-btn"
+        onclick="location.href='product-detail.html?id=vh6'">
+        Mua ngay
+    </button>
+</div>
+
+
+    
+    </section>
+<!--  PHẦN CHI TIẾT SẢN PHẨM (Sửa lại cấu trúc để giống ảnh mẫu) -->
+    <section id="product-detail" style="display: none;">
+    <div class="container">
+        <button onclick="backToList()" class="back-btn">← Quay lại danh sách</button>
+        <div class="detail-content">
+            <!-- JS đổ dữ liệu vào đây -->
+        </div>
+    </div>
+    </section>
+    <div id="google_translate_element" style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</main>
+
+        <div class="lienhe-container">
+            <div class="lienhe-group">
+                <a href="javascript:void(0)" onclick="toggleChatbot()" class="lienhe-item">
+                    <span>Chat AI</span>
+                    <div class="icon-circle" style="background-color: #ffffff !important;">
+                        <i class="fa-solid fa-robot" style="color: #ff4d6d !important;"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" class="lienhe-item">
+                    <span>Facebook</span>
+                    <div class="icon-circle"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" class="lienhe-item">
+                    <span>Instagram</span>
+                    <div class="icon-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="tel:0377953921" class="lienhe-item">
+                    <span>Hotline</span>
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                </a>
+            </div>
+
+            <div class="main-lienhe-icon">
+                <img src="../img/lienhe.jpg" alt="cat-icon">
+            </div>
+
+            <div id="gacxen-chatbot" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> Mao Mao </h3>
+                    <button onclick="toggleChatbot()" class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-msg">
+                        <div class="msg-bubble">Meow! Mình là trợ lý AI của Gác Xen. Mình có thể giúp gì cho bạn? 🐾</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+<!-- ===== FOOTER (RÚT GỌN) ===== -->
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="container newsletter-inner">
+                <div class="newsletter-title">
+                    <i class="far fa-envelope-open"></i> ĐĂNG KÝ NHẬN BẢN TIN
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Nhập địa chỉ email của bạn...">
+                    <button class="btn-subscribe" id="btnSubscribe">Đăng ký</button>
+                    <button class="btn-unsubscribe" id="btnUnsubscribe">Hủy đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content-wrapper">
+            <div class="footer-left">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách" class="footer-logo"></a>
+                <p>12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</p>
+                <p>Công Ty TNHH Gác Xen</p>
+                <p>Gác Xen nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
+                <img src="../img/dathongbao.jpg" alt="Logo bộ công thương" class="footer-logo">
+                
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tuisokiuu_3?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                
+                <div class="footer-menus">
+                    <div class="footer-col">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                            <li><a href="flashsale.html">Flashsale</a></li>
+                            <li><a href="gioithieu.html">Giới thiệu</a></li>
+                            <li><a href="lienhe.html">Liên hệ</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Chính sách hỗ trợ</h4>
+                        <ul>
+                            <li><a href="gioithieu.html?policy=giaonhan">Thông tin vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=doitra">Chính sách đổi - trả - hoàn tiền</a></li>
+                            <li><a href="gioithieu.html?policy=baohanh">Chính sách bảo hành - bồi hoàn</a></li>
+                            <li><a href="gioithieu.html?policy=vanchuyen">Chính sách vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=baomat">Chính sách bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Tài khoản của tôi</h4>
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập/Tạo mới tài khoản</a></li>
+                            <li><a href="taikhoan.html">Chi tiết tài khoản</a></li>
+                            <li><a href="giohang.html">Giỏ hàng của tôi</a></li>
+                            <li><a href="yeuthich.html">Danh sách yêu thích của tôi</a></li>
+                            <li><a href="donhang.html">Lịch sử mua hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col-new">
+                        <h4 class="pink-heading">Thông tin liên hệ</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span><a href="https://maps.app.goo.gl/1B5HR1rLtcE8mr8X8">12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i> 
+                                <span><a href="tel:0377953921">0377953921</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i> 
+                                <span><a href="mailto:gacxen.xinchao@gmail.com">gacxen.xinchao@gmail.com</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="payment-shipping-logos">
+                    <div class="logo-row row-top">
+                        <img src="../img/ghtk.jpg" alt="Giao Hàng Tiết Kiệm">
+                        <img src="../img/ghn.jpg" alt="Giao Hàng Nhanh">
+                        <img src="../img/vnp.jpg" alt="VNPost">
+                    </div>
+                    <div class="logo-row row-bottom">
+                        <img src="../img/vnpay.jpg" alt="VNPAY">
+                        <img src="../img/momo.jpg" alt="MoMo">
+                        <img src="../img/shopeepay.jpg" alt="ShopeePay">
+                        <img src="../img/zalopay.jpg" alt="ZaloPay">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/category-kinh-te.js"></script>
+<script src="../js/category-khoa-hoc.js"></script>
+<script src="../js/category-tam-ly.js"></script>
+<script src="../js/category-van-hoc.js"></script>
+<script>
+function changeCategory(category) {
+
+    //  đổi banner
+    const banner = document.getElementById("bannerImg");
+    const title = document.getElementById("bannerTitle");
+
+    if (category === "kinhte") {
+        banner.src = "../img/banner-kinhte.jpg";
+        title.innerText = "Tủ sách kinh tế - tài chính";
+    }
+
+    if (category === "vanhoc") {
+        banner.src = "../img/banner-vanhoc.jpg";
+        title.innerText = "Tủ sách văn học";
+    }
+
+    if (category === "tamly") {
+        banner.src = "../img/banner-tamly.jpg";
+        title.innerText = "Tủ sách tâm lý";
+    }
+
+    if (category === "khoahoc") {
+        banner.src = "../img/banner-khoahoc.jpg";
+        title.innerText = "Tủ sách khoa học";
+    }
+
+    //  lọc sản phẩm
+    const items = document.querySelectorAll('.shop-item');
+
+    items.forEach(item => {
+        if (item.dataset.category === category) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+
+
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    if (category) {
+        changeCategory(category);
+    }
+}
+</script>
+<script src="../js/script.js"></script>
+</body>
+</html> 

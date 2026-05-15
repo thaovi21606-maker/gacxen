@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/stylelienhe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="searchOverlay" class="search-overlay"></div>
+
+    <div id="searchSidebar" class="search-sidebar">
+        
+        <!-- HEADER -->
+      <div class="search-header">
+
+    <form id="sidebarSearchForm">
+
+        <input type="text"
+        id="searchInput"
+        placeholder="Tìm kiếm sản phẩm"
+        autocomplete="off">
+
+        <div id="searchSuggestions"
+        class="search-suggestions"></div>
+
+    </form>
+
+    <span class="close-btn"
+    onclick="closeSearch()">✕</span>
+
+</div>
+        <ul class="search-menu">
+            <li><a href="category-tatcasanpham.html?category=kinhte">Sách kinh tế - tài chính</a></li>
+            <li><a href="category-tatcasanpham.html?category=vanhoc">Sách văn học</a></li>
+            <li><a href="category-tatcasanpham.html?category=tamly">Sách tâm lý - kỹ năng</a></li>
+            <li><a href="category-tatcasanpham.html?category=khoahoc">Sách khoa học - giáo dục</a></li>
+        </ul>
+    </div>
+
+
+    <div class="top-bar">
+        <div class="marquee-container">
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+            </div>
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-main">
+            <div class="logo">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách"></a>
+            </div>
+            
+            <div class="search-bar">
+                <form id="searchForm" action="sanpham.html" method="GET">
+                   <input type="text" onclick="openSearch()" readonly placeholder="Cần sách gì tìm ở đây nhé!">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+<div class="user-actions">
+            <div class="account-wrapper">
+                <a href="dangnhap.html" id="btn-account-header" class="action-btn">
+                    <i class="fas fa-user"></i> 
+                    <span>Tài khoản</span>
+                </a>
+                <ul class="account-submenu" id="accountSubmenu">
+                    <li><a href="dangnhap.html">Đăng nhập</a></li>
+                    <li><a href="dangky.html">Đăng ký</a></li>
+                </ul>
+            </div>
+                <a href="donhang.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-box"></i> <span>Đơn hàng</span></a>
+
+<a href="yeuthich.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-heart"></i> <span>Yêu thích <span id="favCount" class="cart-count">0</span></span></a>
+
+<a href="giohang.html" onclick="return window.requireLogin();" class="action-btn cart-btn">
+    <i class="fas fa-shopping-bag"></i> 
+    <span>Giỏ hàng <span id="cartCount" class="cart-count">0</span></span>
+</a>
+                
+                <div class="lang-dropdown">
+    <a href="#" class="action-btn lang-btn notranslate" translate="no">
+        <img src="../img/vn-flag.jpg" alt="VN" class="flag-icon"> 
+        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </a>
+    
+    <ul class="dropdown-menu lang-menu notranslate" translate="no">
+        <li>
+            <a href="#" onclick="changeLanguage('vi')">
+                <img src="../img/vn-flag.jpg" alt="Tiếng Việt" class="flag-icon">
+                <span translate="no">VN</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="changeLanguage('en')">
+                <img src="../img/en-flag.jpg" alt="Tiếng Anh" class="flag-icon">
+                <span translate="no">EN</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                  <li><a href="homepage.html" class="lang-home">Trang chủ</a></li>
+                   <li class="dropdown">
+                        <a href="category-tatcasanpham.html">Sản phẩm</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="flashsale.html">Flashsale</a></li>
+                    <li><a href="gioithieu.html">Giới thiệu</a></li>
+                    <li><a href="lienhe.html" class="active">Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contact-page-container container">
+        
+        <div class="contact-header-section">
+            <h1 class="contact-main-title">Gửi lời nhắn cho Gác Xen nhé!</h1>
+            <p class="contact-subtitle">Mọi thắc mắc của bạn sẽ được chúng mình giải đáp tận tâm nhất.</p>
+            
+            <div class="contact-info-row">
+    <div class="info-box-item">
+        <i class="fa-solid fa-phone pink-flower"></i>
+        <strong>Hotline:</strong> 
+        <a href="tel:0377953921" style="color: inherit; text-decoration: none; transition: color 0.3s;">0377953921</a>
+    </div>
+
+    <div class="info-box-item">
+        <i class="fa-solid fa-envelope blue-mail"></i> 
+        <strong>Email:</strong> 
+        <a href="mailto:gacxen.xinchao@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.3s;">gacxen.xinchao@gmail.com</a>
+    </div>
+
+    <div class="info-box-item">
+        <i class="fa-brands fa-facebook-messenger mes-icon"></i> 
+        <strong>Messenger:</strong> 
+        <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s;">Gác Xen</a>
+    </div>
+
+    <div class="info-box-item">
+        <i class="fa-brands fa-instagram ins-icon"></i> 
+        <strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s;">gac_xen</a>
+    </div>
+</div>
+        </div>
+
+        <div class="contact-content-grid">
+            
+            <div class="contact-form-column">
+                <h2 class="form-section-title">CHÚNG MÌNH LUÔN Ở ĐÂY 24/7 NHA!</h2>
+                
+                <div class="form-dashed-wrapper">
+                    <form action="#" method="POST" class="gx-contact-form" id="contactForm">
+                        
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>Tên <span class="req">*</span></label>
+                                <input type="text" required>
+                                <span class="sub-label">Tên</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="hidden-label"> </label>
+                                <input type="text">
+                                <span class="sub-label">Họ</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Số điện thoại <span class="req">*</span></label>
+                            <input type="tel" required pattern="0[0-9]{9}" title="Vui lòng nhập đúng 10 số và bắt đầu bằng số 0 (VD: 0909874632)">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email <span class="req">*</span></label>
+                            <input type="email" required title="Vui lòng nhập đúng định dạng email (VD: hi@gacxen.vn)">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gác Xen rất vui được nhận những ý kiến từ iu ơi!</label>
+                            <textarea rows="5"></textarea>
+                        </div>
+
+                        <div class="submit-row">
+                            <button type="submit" class="btn-submit-form" id="btnSubmitContact">GỬI</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="contact-map-column">
+                <h2 class="form-section-title">BẢN ĐỒ ĐẾN GÁC XEN!</h2>
+                <div class="map-dashed-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2086.8723875328224!2d106.68491747507002!3d10.82218518205312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1778147429069!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+        <div id="google_translate_element" style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+
+        <div class="lienhe-container">
+            <div class="lienhe-group">
+                <a href="javascript:void(0)" onclick="toggleChatbot()" class="lienhe-item">
+                    <span>Chat AI</span>
+                    <div class="icon-circle" style="background-color: #ffffff !important;">
+                        <i class="fa-solid fa-robot" style="color: #ff4d6d !important;"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" class="lienhe-item">
+                    <span>Facebook</span>
+                    <div class="icon-circle"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" class="lienhe-item">
+                    <span>Instagram</span>
+                    <div class="icon-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="tel:0377953921" class="lienhe-item">
+                    <span>Hotline</span>
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                </a>
+            </div>
+
+            <div class="main-lienhe-icon">
+                <img src="../img/lienhe.jpg" alt="cat-icon">
+            </div>
+
+            <div id="gacxen-chatbot" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> Mao Mao </h3>
+                    <button onclick="toggleChatbot()" class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-msg">
+                        <div class="msg-bubble">Meow! Mình là trợ lý AI của Gác Xen. Mình có thể giúp gì cho bạn? 🐾</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="container newsletter-inner">
+                <div class="newsletter-title">
+                    <i class="far fa-envelope-open"></i> ĐĂNG KÝ NHẬN BẢN TIN
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Nhập địa chỉ email của bạn...">
+                    <button class="btn-subscribe" id="btnSubscribe">Đăng ký</button>
+                    <button class="btn-unsubscribe" id="btnUnsubscribe">Hủy đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content-wrapper">
+            <div class="footer-left">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách" class="footer-logo"></a>
+                <p>12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</p>
+                <p>Công Ty TNHH Gác Xen</p>
+                <p>Gác Xen nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
+                <img src="../img/dathongbao.jpg" alt="Logo bộ công thương" class="footer-logo">
+                
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tuisokiuu_3?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                
+                <div class="footer-menus">
+                    <div class="footer-col">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                            <li><a href="flashsale.html">Flashsale</a></li>
+                            <li><a href="gioithieu.html">Giới thiệu</a></li>
+                            <li><a href="lienhe.html">Liên hệ</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Chính sách hỗ trợ</h4>
+                        <ul>
+                            <li><a href="gioithieu.html?policy=giaonhan">Thông tin vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=doitra">Chính sách đổi - trả - hoàn tiền</a></li>
+                            <li><a href="gioithieu.html?policy=baohanh">Chính sách bảo hành - bồi hoàn</a></li>
+                            <li><a href="gioithieu.html?policy=vanchuyen">Chính sách vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=baomat">Chính sách bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Tài khoản của tôi</h4>
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập/Tạo mới tài khoản</a></li>
+                            <li><a href="taikhoan.html">Chi tiết tài khoản</a></li>
+                            <li><a href="giohang.html">Giỏ hàng của tôi</a></li>
+                            <li><a href="yeuthich.html">Danh sách yêu thích của tôi</a></li>
+                            <li><a href="donhang.html">Lịch sử mua hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col-new">
+                        <h4 class="pink-heading">Thông tin liên hệ</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span><a href="https://maps.app.goo.gl/1B5HR1rLtcE8mr8X8">12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i> 
+                                <span><a href="tel:0377953921">0377953921</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i> 
+                                <span><a href="mailto:gacxen.xinchao@gmail.com">gacxen.xinchao@gmail.com</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="payment-shipping-logos">
+                    <div class="logo-row row-top">
+                        <img src="../img/ghtk.jpg" alt="Giao Hàng Tiết Kiệm">
+                        <img src="../img/ghn.jpg" alt="Giao Hàng Nhanh">
+                        <img src="../img/vnp.jpg" alt="VNPost">
+                    </div>
+                    <div class="logo-row row-bottom">
+                        <img src="../img/vnpay.jpg" alt="VNPAY">
+                        <img src="../img/momo.jpg" alt="MoMo">
+                        <img src="../img/shopeepay.jpg" alt="ShopeePay">
+                        <img src="../img/zalopay.jpg" alt="ZaloPay">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/scriptlienhe.js"></script>
+
+</body>
+</html>

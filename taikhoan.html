@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styletk.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="searchOverlay" class="search-overlay"></div>
+
+<div id="searchSidebar" class="search-sidebar">
+
+    <div class="search-header">
+
+        <form id="sidebarSearchForm">
+
+            <input type="text"
+            id="searchInput"
+            placeholder="Tìm kiếm sản phẩm"
+            autocomplete="off">
+            <div id="searchSuggestions"
+class="search-suggestions"></div>
+        </form>
+
+        <span class="close-btn"
+        onclick="closeSearch()">✕</span>
+
+    </div>
+
+    <ul class="search-menu">
+        <li><a href="#">Sách kinh tế - tài chính</a></li>
+        <li><a href="#">Sách văn học</a></li>
+        <li><a href="#">Sách tâm lý - kỹ năng</a></li>
+        <li><a href="#">Sách khoa học - giáo dục</a></li>
+    </ul>
+
+</div>
+    <div class="top-bar">
+        <div class="marquee-container">
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+            </div>
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn &nbsp;&nbsp;  &nbsp;&nbsp;</p>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+    <div class="container header-main">
+        <div class="logo">
+            <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách"></a>
+        </div>
+        
+        <div class="search-bar">
+            <form id="searchForm" action="category-tatcasanpham.html" method="GET">
+               <input type="text" onclick="openSearch()" readonly placeholder="Cần sách gì tìm ở đây nhé!">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <div class="user-actions">
+    <div class="account-wrapper">
+        <a href="dangnhap.html" id="btn-account-header" class="action-btn" style="background-color: var(--primary-color); color: #fff; border-color: var(--primary-color);">
+            <i class="fas fa-user"></i> 
+            <span>Tài khoản</span>
+        </a>
+        <ul class="account-submenu" id="accountSubmenu">
+            <li><a href="dangnhap.html">Đăng nhập</a></li>
+            <li><a href="dangky.html">Đăng ký</a></li>
+        </ul>
+    </div>
+    
+    <a href="donhang.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-box"></i> <span>Đơn hàng</span></a>
+
+<a href="yeuthich.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-heart"></i> <span>Yêu thích <span id="favCount" class="cart-count">0</span></span></a>
+
+<a href="giohang.html" onclick="return window.requireLogin();" class="action-btn cart-btn">
+    <i class="fas fa-shopping-bag"></i> 
+    <span>Giỏ hàng <span id="cartCount" class="cart-count">0</span></span>
+</a>
+    <div class="lang-dropdown">
+    <a href="#" class="action-btn lang-btn notranslate" translate="no">
+        <img src="../img/vn-flag.jpg" alt="VN" class="flag-icon"> 
+        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </a>
+    
+    <ul class="dropdown-menu lang-menu notranslate" translate="no">
+        <li>
+            <a href="#" onclick="changeLanguage('vi')">
+                <img src="../img/vn-flag.jpg" alt="Tiếng Việt" class="flag-icon">
+                <span translate="no">VN</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="changeLanguage('en')">
+                <img src="../img/en-flag.jpg" alt="Tiếng Anh" class="flag-icon">
+                <span translate="no">EN</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+
+    <nav class="navigation">
+        <div class="container">
+            <ul class="nav-menu">
+               <li><a href="homepage.html" class="lang-home">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="category-tatcasanpham.html">Sản phẩm</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                        <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                        <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                        <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                    </ul>
+                </li>
+                <li><a href="flashsale.html">Flashsale</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <main class="account-bg">
+    <div class="container account-layout">
+        <aside class="account-sidebar">
+            <div class="user-summary">
+                <div class="user-avatar">
+                    <img src="../img/tk.png" alt="Avatar" id="userAvatarPlaceholder"> </div>
+                <div class="user-level">Thành viên Bạc</div>
+                <div class="user-points">G-Point tích lũy: <span id="userPoints">0</span></div>
+                <div class="user-hint">Thêm 30.000đ để nâng hạng Vàng</div>
+            </div>
+
+            <nav class="account-menu">
+                <ul>
+                    <li class="active" onclick="switchTab(event, 'tab-profile')">
+                        <a href="#"><i class="far fa-user-circle"></i> Hồ sơ cá nhân</a>
+                    </li>
+                    <li onclick="switchTab(event, 'tab-address')">
+                        <a href="#"><i class="far fa-address-book"></i> Sổ địa chỉ</a>
+                    </li>
+                    <li onclick="switchTab(event, 'tab-password')">
+                        <a href="#"><i class="fas fa-unlock-alt"></i> Đổi mật khẩu</a>
+                    </li>
+                    <li onclick="switchTab(event, 'tab-offers')">
+                        <a href="#"><i class="fas fa-crown"></i> Ưu đãi thành viên</a>
+                    </li>
+                    <li onclick="switchTab(event, 'tab-vouchers')">
+                        <a href="#"><i class="fas fa-ticket-alt"></i> Ví voucher</a>
+                    </li>
+                    <li onclick="switchTab(event, 'tab-notifications')">
+                        <a href="#"><i class="far fa-bell"></i> Thông báo</a>
+                    </li>
+                    <li style="border-top: 1px solid #eee; margin-top: 10px; cursor: pointer;">
+    <a href="#" id="btnRealLogout" style="color: #e32b2b; display: block;"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="account-content">
+            
+            <div id="tab-profile" class="acc-tab active">
+                <h2 class="tab-title">Hồ sơ cá nhân</h2>
+                <form class="acc-form" id="profileForm">
+                    <div class="form-row">
+                        <label>Họ<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="profLastName" placeholder="Nhập họ">
+                            <div class="error-message" id="errProfLastName">Vui lòng nhập họ</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Tên<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="profFirstName" placeholder="Nhập tên">
+                            <div class="error-message" id="errProfFirstName">Vui lòng nhập tên</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Số điện thoại</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="profPhone" placeholder="Nhập số điện thoại">
+                            <div class="error-message" id="errProfPhone">Số điện thoại không hợp lệ (10 số, đầu số VN)</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Email<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="profEmail" placeholder="Nhập email">
+                            <div class="error-message" id="errProfEmail">Email không hợp lệ (Ví dụ: abc@gmail.com)</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Giới tính<span>*</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="nam" checked> Nam</label>
+                            <label><input type="radio" name="gender" value="nu"> Nữ</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Ngày sinh<span>*</span></label>
+                        <div class="input-wrapper">
+                            <div class="dob-group">
+                                <input type="text" id="profDay" placeholder="DD">
+                                <input type="text" id="profMonth" placeholder="MM">
+                                <input type="text" id="profYear" placeholder="YYYY">
+                            </div>
+                            <div class="error-message" id="errProfDob">Ngày sinh không hợp lệ (DD: 1-31, MM: 1-12, YYYY: 1900-Nay)</div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">Lưu thay đổi</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="tab-address" class="acc-tab">
+                <h2 class="tab-title">Thêm địa chỉ mới</h2>
+                <form class="acc-form" id="addressForm">
+                    <div class="form-row">
+                        <label>Họ<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="addrLastName" placeholder="Họ">
+                            <div class="error-message" id="errAddrLastName">Vui lòng nhập họ</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Tên<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="addrFirstName" placeholder="Tên">
+                            <div class="error-message" id="errAddrFirstName">Vui lòng nhập tên</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Điện thoại<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="addrPhone" placeholder="Ex: 0972xxxx">
+                            <div class="error-message" id="errAddrPhone">Số điện thoại không hợp lệ (10 số, đầu số VN)</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Quốc gia<span>*</span></label>
+                        <div class="input-wrapper">
+                            <select id="addrCountry">
+                                <option value="vn">Việt Nam</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Tỉnh/Thành phố<span>*</span></label>
+                        <div class="input-wrapper">
+                            <select id="addrCity">
+                                <option value="">Vui lòng chọn</option>
+                                <option value="hcm">Hồ Chí Minh</option>
+                                <option value="hn">Hà Nội</option>
+                                <option value="dn">Đà Nẵng</option>
+                                <option value="ct">Cần Thơ</option>
+                                <option value="hp">Hải Phòng</option>
+                                <option value="bd">Bình Dương</option>
+                                <option value="dnai">Đồng Nai</option>
+                            </select>
+                            <div class="error-message" id="errAddrCity">Vui lòng chọn Tỉnh/Thành phố</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Quận/Huyện<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="addrDistrict" placeholder="Nhập Quận/Huyện">
+                            <div class="error-message" id="errAddrDistrict">Vui lòng nhập Quận/Huyện</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Xã/Phường<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="addrWard" placeholder="Nhập Xã/Phường">
+                            <div class="error-message" id="errAddrWard">Vui lòng nhập Xã/Phường</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Địa chỉ<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="addrDetail" placeholder="Số nhà, tên đường...">
+                            <div class="error-message" id="errAddrDetail">Vui lòng nhập địa chỉ cụ thể</div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions address-actions">
+                        <button type="submit" class="btn-save">Lưu địa chỉ</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="tab-password" class="acc-tab">
+                <h2 class="tab-title">Đổi mật khẩu</h2>
+                <form class="acc-form" id="passwordForm">
+                    <div class="form-row">
+                        <label>Mật khẩu hiện tại<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="password" id="currentPassword" placeholder="Mật khẩu hiện tại">
+                            <div class="error-message" id="errCurrentPassword">Vui lòng nhập mật khẩu hiện tại</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Mật khẩu mới<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="password" id="newPassword" placeholder="Mật khẩu mới">
+                            <div class="error-message" id="errNewPassword">Mật khẩu phải có ít nhất 6 ký tự, gồm chữ hoa, số và ký tự đặc biệt</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Nhập lại mật khẩu mới<span>*</span></label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirmNewPassword" placeholder="Nhập lại mật khẩu mới">
+                            <div class="error-message" id="errConfirmNewPassword">Mật khẩu nhập lại không khớp</div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">Lưu thay đổi</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="tab-offers" class="acc-tab">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h3>Ưu đãi của bạn</h3>
+                        <div class="stat-inner">
+                            <div><p>G-Point hiện có</p><strong>0</strong></div>
+                            <div><p>Freeship hiện có</p><strong>0 lần</strong></div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Thành tích năm 2026</h3>
+                        <div class="stat-inner">
+                            <div><p>Số đơn hàng</p><strong>0 đơn hàng</strong></div>
+                            <div><p>Đã thanh toán</p><strong>0 đ</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="sub-title">Quyền lợi thành viên tại GacXen.vn</h3>
+                
+                <div class="tier-tabs">
+                    <div class="tier active" onclick="switchTier(event, 'tier-bac')">
+                        <img src="../img/silver-medal.png" alt="" style="width: 30px; vertical-align: middle; margin-right: 5px;"> Hạng Bạc
+                    </div>
+                    <div class="tier" onclick="switchTier(event, 'tier-vang')">
+                        <img src="../img/gold-medal.png" alt="" style="width: 30px; vertical-align: middle; margin-right: 5px;"> Hạng Vàng
+                    </div>
+                    <div class="tier" onclick="switchTier(event, 'tier-kimcuong')">
+                        <img src="../img/diamond.png" alt="" style="width: 30px; vertical-align: middle; margin-right: 5px;"> Kim Cương
+                    </div>
+                </div>
+
+                <div class="tier-content-wrapper">
+                    
+                    <div id="tier-bac" class="tier-content active">
+                        <p>- Quà tặng sinh nhật: <strong>x</strong></p>
+                        <p>- Ưu đãi freeship và mã giảm giá: <strong>x</strong></p>
+                        <p>- Tỉ lệ tích lũy G-Point trên giá trị đơn hàng: <strong>0.5%</strong></p>
+                    </div>
+
+                    <div id="tier-vang" class="tier-content">
+                        <p>- Quà tặng sinh nhật: <strong>100.000 G-Point</strong></p>
+                        <p>- Ưu đãi freeship và mã giảm giá: <strong>2 lần</strong></p>
+                        <p>- Tỉ lệ tích lũy G-Point trên giá trị đơn hàng: <strong>1%</strong></p>
+                    </div>
+
+                    <div id="tier-kimcuong" class="tier-content">
+                        <p>- Quà tặng sinh nhật: <strong>300.000 G-Point</strong></p>
+                        <p>- Ưu đãi freeship và mã giảm giá: <strong>5 lần</strong></p>
+                        <p>- Tỉ lệ tích lũy G-Point trên giá trị đơn hàng: <strong>2%</strong></p>
+                    </div>
+
+                </div>
+                <div class="tier-content">
+                    <p>- Quà tặng sinh nhật: <strong>x</strong></p>
+                    <p>- Ưu đãi freeship và mã giảm giá: <strong>x</strong></p>
+                    <p>- Tỉ lệ tích lũy G-Point trên giá trị đơn hàng: <strong>0.5%</strong></p>
+                </div>
+            </div>
+
+            <div id="tab-vouchers" class="acc-tab">
+                <div class="voucher-tabs">
+                    <span class="active" onclick="switchVoucherTab(event, 'my-vouchers')">Voucher của tôi</span>
+                    <span onclick="switchVoucherTab(event, 'partner-vouchers')">Voucher đối tác</span>
+                </div>
+
+                <div id="my-vouchers" class="v-tab-content active">
+                    <div class="voucher-grid">
+                        <div class="voucher-card">
+                            <div class="v-left"><i class="fas fa-shipping-fast"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>FREESHIP 25K THÀNH VIÊN</h4></div>
+                                <p>Giảm 25K phí ship áp dụng đơn hàng từ 200K dành cho thành viên Gác Xen.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">GXFREESHIP25</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 20/05/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left"><i class="fas fa-ticket-alt"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>MÃ GIẢM 10K - TOÀN SÀN</h4></div>
+                                <p>Áp dụng cho mọi loại sách (trừ sách ngoại văn và manga).</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">GX10KT05</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 31/05/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left"><i class="fas fa-star"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>ƯU ĐÃI ĐỘC QUYỀN 30K</h4></div>
+                                <p>Giảm ngay 30.000đ cho đơn hàng sách kinh tế từ 499k.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">GX30KT05</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 15/06/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left"><i class="fas fa-gift"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>QUÀ TẶNG BẠN MỚI 50K</h4></div>
+                                <p>Ưu đãi dành riêng cho khách hàng đăng ký tài khoản lần đầu tại Gác Xen.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">GACXENNEW</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 30/06/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left"><i class="fas fa-bolt"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>FLASH SALE VOUCHER 20K</h4></div>
+                                <p>Voucher chớp nhoáng chỉ áp dụng trong khung giờ vàng hàng tuần.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">GXFLASH20</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 31/12/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="partner-vouchers" class="v-tab-content">
+                    <div class="voucher-grid">
+                        <div class="voucher-card">
+                            <div class="v-left" style="background: #2b7a3e;"><i class="fas fa-book-open"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>ĐỐI TÁC NHÃ NAM - GIẢM 15%</h4></div>
+                                <p>Giảm 15% tối đa 30K cho tất cả các đầu sách do Nhã Nam phát hành.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">NHANAM15</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 15/07/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left" style="background: #0077c0;"><i class="fas fa-dove"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>NXB TRẺ - TẶNG SỔ TAY</h4></div>
+                                <p>Nhập mã tặng kèm 01 sổ tay độc quyền cho đơn hàng NXB Trẻ từ 250K.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">NXBTRE250</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 20/07/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left" style="background: #e32b2b;"><i class="fas fa-child"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>KIM ĐỒNG - FREESHIP 20K</h4></div>
+                                <p>Hỗ trợ 20K phí vận chuyển cho các bộ Manga, Comic của Kim Đồng.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">KIMDONG20K</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 10/08/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="v-left" style="background: #f47920;"><i class="fas fa-chart-line"></i></div>
+                            <div class="v-right">
+                                <div class="v-header"><h4>ALPHA BOOKS - GIẢM 50K</h4></div>
+                                <p>Giảm sốc 50K cho danh mục sách Kinh tế - Khởi nghiệp của Alpha Books.</p>
+                                <div class="v-code-box"><i class="far fa-copy"></i> <span class="code-text">ALPHA50K</span></div>
+                                <div class="v-bottom"><span class="v-date">HSD: 30/08/2026</span> <button class="btn-copy" onclick="copyVoucher(this)">Copy mã</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="tab-notifications" class="acc-tab">
+                <h2 class="tab-title">Thông báo của bạn</h2>
+                
+                <div class="notification-list">
+                    <div class="notify-item unread">
+                        <div class="notify-icon"><i class="fas fa-gift"></i></div>
+                        <div class="notify-content">
+                            <h4>Chào mừng bạn đến với Gác Xen! 🎉</h4>
+                            <p>Cảm ơn bạn đã đăng ký tài khoản. Tặng bạn mã <strong>GACXENNEW</strong> giảm 50K cho đơn hàng đầu tiên. Mua sắm ngay nhé!</p>
+                            <span class="notify-time">10:30 - 09/05/2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="notify-item">
+                        <div class="notify-icon" style="background: #f47920;"><i class="fas fa-bolt"></i></div>
+                        <div class="notify-content">
+                            <h4>Sắp diễn ra: Flash Sale cuối tuần! ⚡</h4>
+                            <p>Hàng ngàn đầu sách hot sẽ giảm giá sốc lên đến 50% vào khung giờ 20h - 22h tối nay. Đừng bỏ lỡ!</p>
+                            <span class="notify-time">09:00 - 07/05/2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</main>
+
+        <div class="lienhe-container">
+            <div class="lienhe-group">
+                <a href="javascript:void(0)" onclick="toggleChatbot()" class="lienhe-item">
+                    <span>Chat AI</span>
+                    <div class="icon-circle" style="background-color: #ffffff !important;">
+                        <i class="fa-solid fa-robot" style="color: #ff4d6d !important;"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" class="lienhe-item">
+                    <span>Facebook</span>
+                    <div class="icon-circle"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" class="lienhe-item">
+                    <span>Instagram</span>
+                    <div class="icon-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="tel:0377953921" class="lienhe-item">
+                    <span>Hotline</span>
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                </a>
+            </div>
+
+            <div class="main-lienhe-icon">
+                <img src="../img/lienhe.jpg" alt="cat-icon">
+            </div>
+
+            <div id="gacxen-chatbot" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> Mao Mao </h3>
+                    <button onclick="toggleChatbot()" class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-msg">
+                        <div class="msg-bubble">Meow! Mình là trợ lý AI của Gác Xen. Mình có thể giúp gì cho bạn? 🐾</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="container newsletter-inner">
+                <div class="newsletter-title">
+                    <i class="far fa-envelope-open"></i> ĐĂNG KÝ NHẬN BẢN TIN
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Nhập địa chỉ email của bạn...">
+                    <button class="btn-subscribe" id="btnSubscribe">Đăng ký</button>
+                    <button class="btn-unsubscribe" id="btnUnsubscribe">Hủy đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content-wrapper">
+            <div class="footer-left">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách" class="footer-logo"></a>
+                <p>12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</p>
+                <p>Công Ty TNHH Gác Xen</p>
+                <p>Gác Xen nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
+                <img src="../img/dathongbao.jpg" alt="Logo bộ công thương" class="footer-logo">
+                
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tuisokiuu_3?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                
+                <div class="footer-menus">
+                    <div class="footer-col">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                            <li><a href="flashsale.html">Flashsale</a></li>
+                            <li><a href="gioithieu.html">Giới thiệu</a></li>
+                            <li><a href="lienhe.html">Liên hệ</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Chính sách hỗ trợ</h4>
+                        <ul>
+                            <li><a href="gioithieu.html?policy=giaonhan">Thông tin vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=doitra">Chính sách đổi - trả - hoàn tiền</a></li>
+                            <li><a href="gioithieu.html?policy=baohanh">Chính sách bảo hành - bồi hoàn</a></li>
+                            <li><a href="gioithieu.html?policy=vanchuyen">Chính sách vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=baomat">Chính sách bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Tài khoản của tôi</h4>
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập/Tạo mới tài khoản</a></li>
+                            <li><a href="taikhoan.html">Chi tiết tài khoản</a></li>
+                            <li><a href="giohang.html">Giỏ hàng của tôi</a></li>
+                            <li><a href="yeuthich.html">Danh sách yêu thích của tôi</a></li>
+                            <li><a href="donhang.html">Lịch sử mua hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col-new">
+                        <h4 class="pink-heading">Thông tin liên hệ</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span><a href="https://maps.app.goo.gl/1B5HR1rLtcE8mr8X8">12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i> 
+                                <span><a href="tel:0377953921">0377953921</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i> 
+                                <span><a href="mailto:gacxen.xinchao@gmail.com">gacxen.xinchao@gmail.com</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="payment-shipping-logos">
+                    <div class="logo-row row-top">
+                        <img src="../img/ghtk.jpg" alt="Giao Hàng Tiết Kiệm">
+                        <img src="../img/ghn.jpg" alt="Giao Hàng Nhanh">
+                        <img src="../img/vnp.jpg" alt="VNPost">
+                    </div>
+                    <div class="logo-row row-bottom">
+                        <img src="../img/vnpay.jpg" alt="VNPAY">
+                        <img src="../img/momo.jpg" alt="MoMo">
+                        <img src="../img/shopeepay.jpg" alt="ShopeePay">
+                        <img src="../img/zalopay.jpg" alt="ZaloPay">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/scripttk.js"></script>
+    <div id="google_translate_element"
+style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

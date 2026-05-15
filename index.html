@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="../js/script.js"></script>
+</head>
+<body> 
+    <div id="searchOverlay" class="search-overlay"></div>
+
+<div id="searchSidebar" class="search-sidebar">
+    
+   <div class="search-header">
+            <form id="sidebarSearchForm">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm" autocomplete="off">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <div id="searchSuggestions"
+                class="search-suggestions"></div>
+
+            </form>
+
+            <span class="close-btn"
+            onclick="closeSearch()">✕</span>
+
+        </div>
+
+ <ul class="search-menu">
+    <li><a href="#" onclick="selectCategory('kinhte')">Sách kinh tế - tài chính</a></li>
+    <li><a href="#" onclick="selectCategory('vanhoc')">Sách văn học</a></li>
+    <li><a href="#" onclick="selectCategory('tamly')">Sách tâm lý - kỹ năng</a></li>
+    <li><a href="#" onclick="selectCategory('khoahoc')">Sách khoa học - giáo dục</a></li>
+</ul>
+
+</div>
+
+    <div class="top-bar">
+        <div class="marquee-container">
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn       </p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn       </p>
+            </div>
+            <div class="marquee-group">
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn       </p>
+                <p>Nếu bạn cần tư vấn gì, hãy liên hệ với Gác Xen qua hotline: 0909874632 hoặc email: hi@gacxen.vn       </p>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-main">
+            <div class="logo">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách"></a>
+            </div>
+            
+            <div class="search-bar">
+                <form id="headerSearchForm" action="sanpham.html" method="GET" style="position: relative;">
+                   <input type="text"
+onclick="openSearch()"
+readonly
+placeholder="Cần sách gì tìm ở đây nhé!">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </form>
+            </div>
+<div class="user-actions">
+            <div class="account-wrapper">
+                <a href="dangnhap.html" id="btn-account-header" class="action-btn">
+                    <i class="fas fa-user"></i> 
+                    <span>Tài khoản</span>
+                </a>
+                <ul class="account-submenu" id="accountSubmenu">
+                    <li><a href="dangnhap.html">Đăng nhập</a></li>
+                    <li><a href="dangky.html">Đăng ký</a></li>
+                </ul>
+            </div>
+                <a href="donhang.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-box"></i> <span>Đơn hàng</span></a>
+
+<a href="yeuthich.html" onclick="return window.requireLogin();" class="action-btn"><i class="fas fa-heart"></i> <span>Yêu thích <span id="favCount" class="cart-count">0</span></span></a>
+
+<a href="giohang.html" onclick="return window.requireLogin();" class="action-btn cart-btn">
+    <i class="fas fa-shopping-bag"></i> 
+    <span>Giỏ hàng <span id="cartCount" class="cart-count">0</span></span>
+</a>
+                
+                <div class="lang-dropdown">
+    <a href="#" class="action-btn lang-btn notranslate" translate="no">
+        <img src="../img/vn-flag.jpg" alt="VN" class="flag-icon"> 
+        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </a>
+    
+    <ul class="dropdown-menu lang-menu notranslate" translate="no">
+        <li>
+            <a href="#" onclick="changeLanguage('vi')">
+                <img src="../img/vn-flag.jpg" alt="Tiếng Việt" class="flag-icon">
+                <span translate="no">VN</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="changeLanguage('en')">
+                <img src="../img/en-flag.jpg" alt="Tiếng Anh" class="flag-icon">
+                <span translate="no">EN</span>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <div class="container">
+                <ul class="nav-menu">
+                   <li><a href="homepage.html" class="lang-home">Trang chủ</a></li>
+                   <li class="dropdown">
+                        <a href="category-tatcasanpham.html">Sản phẩm</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="flashsale.html">Flashsale</a></li>
+                    <li><a href="gioithieu.html">Giới thiệu</a></li>
+                    <li><a href="lienhe.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="slogan">
+            <div class="healing-message">
+                Đến với <span class="brand-name">Gác Xen</span>, 
+                nơi bạn <span class="highlight">Gác</span> lại âu lo, 
+                <span class="highlight">Xen</span> mình vào tri thức nhé!
+                <span class="heart">❤️</span>
+            </div>
+        </section>
+
+        <section class="button">
+            <div class="gac-xen-features"><a href="#" class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M5 8h10v8H5zm10 0h4l3 4v4h-7zm0 8h-2m-8 0H3m2 0a2 2 0 104 0 2 2 0 00-4 0zm10 0a2 2 0 104 0 2 2 0 00-4 0z"/></svg></div><div class="feature-content"><span class="feature-title">Vận chuyển TOÀN QUỐC</span><span class="feature-desc">Thanh toán khi nhận hàng</span></div></a><a href="#" class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div><div class="feature-content"><span class="feature-title">Bảo đảm chất lượng</span><span class="feature-desc">Sản phẩm bảo đảm chất lượng.</span></div></a><a href="#" class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 10h18M7 15h.01M11 15h2M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg></div><div class="feature-content"><span class="feature-title">Tiến hành THANH TOÁN</span><span class="feature-desc">Với nhiều PHƯƠNG THỨC</span></div></a><a href="#" class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div><div class="feature-content"><span class="feature-title">Đổi sản phẩm mới</span><span class="feature-desc">nếu sản phẩm lỗi</span></div></a></div>
+        </section>
+
+        <section class="banner-section container">
+            <div class="banner-top">
+                <div class="banner-slider-wrapper">
+                    <div class="banner-slider" id="bannerSlider">
+                        <div class="slide"><img src="../img/banner1.jpg" alt="Banner Khuyến Mãi 1"></div>
+                        <div class="slide"><img src="../img/banner9.jpg" alt="Banner Khuyến Mãi 2"></div>
+                        <div class="slide"><img src="../img/banner3.jpg" alt="Banner Khuyến Mãi 3"></div>
+                    </div>
+                    <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                </div>
+
+                <div class="banner-right">
+                    <div class="banner-img"><img src="../img/banner8.jpg" alt="Banner 8"></div>
+                    <div class="banner-img"><img src="../img/banner2.jpg" alt="Banner 9"></div>
+                </div>
+            </div>
+
+            <div class="banner-bottom">
+
+                <div class="banner-img">
+                    <a href="category-tatcasanpham.html?category=kinhte">
+                        <img src="../img/banner-kinhte.jpg">
+                    </a>
+                </div>
+
+                <div class="banner-img">
+                    <a href="category-tatcasanpham.html?category=vanhoc">
+                        <img src="../img/banner-vanhoc.jpg">
+                    </a>
+                </div>
+
+                <div class="banner-img">
+                    <a href="category-tatcasanpham.html?category=tamly">
+                        <img src="../img/banner-tamly.jpg">
+                    </a>
+                </div>
+
+                <div class="banner-img">
+                    <a href="category-tatcasanpham.html?category=khoahoc">
+                        <img src="../img/banner-khoahoc.jpg">
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="product-widget">
+        <div class="widget-container">
+            <div class="widget-header dynamic-header">
+    <i class="fas fa-fire-alt fire-icon"></i>
+    <h2 class="widget-title gradient-text">TOP SÁCH BÁN CHẠY</h2>
+    <span class="sparkle-icon">✨</span>
+</div>
+            <div class="slider-wrapper" id="wrapper-bestseller"
+                onmouseenter="showArrows('bestseller')"
+                onmouseleave="hideArrows('bestseller')">
+            <button class="slider-btn slider-btn-left" id="btn-left-bestseller"
+                    onclick="slideLeft('bestseller')">‹</button>
+            <div class="product-slider" id="bestseller-slider">
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=vh1'">
+                <div class="product-badge">-30%</div>
+                <img src="../img/thu-cho-em.jpg" alt="Thư cho em" class="product-image">
+                <h3 class="product-name">Thư cho em</h3>
+                <div class="product-price">
+                    <span class="shop-price">105.000đ</span>
+                    <span class="shop-old-price">150.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=vh3'">
+                <div class="product-badge">-15%</div>
+                <img src="../img/vong-tay-hoc-tro.jpg" alt="Vòng tay học trò" class="product-image">
+                <h3 class="product-name">Vòng tay học trò</h3>
+                <div class="product-price">
+                    <span class="shop-price">119.000đ</span>
+                    <span class="shop-old-price">140.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=vh2'">
+                <div class="product-badge">-20%</div>
+                <img src="../img/Vi-cau-la-ban-nho-cua-to.jpg" alt="Vì cậu là bạn nhỏ của tớ" class="product-image">
+                <h3 class="product-name">Vì cậu là bạn nhỏ của tớ</h3>
+                <div class="product-price">
+                    <span class="shop-price">136.000đ</span>
+                    <span class="shop-old-price">170.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=tl4'">
+                <div class="product-badge">-20%</div>
+                <img src="../img/Flashcard-Tu-Duy-Lanh-Dao.jpg" alt="Flashcard tư duy lãnh đạo" class="product-image">
+                <h3 class="product-name">Flashcard tư duy lãnh đạo</h3>
+                <div class="product-price">
+                    <span class="shop-price">152.000đ</span>
+                    <span class="shop-old-price">190.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=tl3'">
+                <div class="product-badge">-30%</div>
+                <img src="../img/Lieu-Phap-Tam-Li-Tri-Lieu-Chien-Luoc-Jay-Haley-amp-Madeleine.jpg" alt="Liệu pháp tâm lý trị liệu chiến lược" class="product-image">
+                <h3 class="product-name">Liệu pháp tâm lý trị liệu chiến lược</h3>
+                <div class="product-price">
+                    <span class="price-current">161.000đ</span>
+                    <span class="price-original">230.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=vh4'">
+                <div class="product-badge">-30%</div>
+                <img src="../img/Vui-ve-khong-quau-nha.jpg" alt="Vui vẻ không quạu nha" class="product-image">
+                <h3 class="product-name">Vui vẻ không quạu nha</h3>
+                <div class="product-price">
+                    <span class="price-current">84.000đ</span>
+                    <span class="price-original">120.000đ</span>
+                </div>
+                </a>
+
+            </div>
+            <button class="slider-btn slider-btn-right" id="btn-right-bestseller"
+                    onclick="slideRight('bestseller')">›</button>
+            </div>
+        </div>
+        </section>
+
+        <section class="product-widget">
+        <div class="widget-container">
+            <div class="widget-header dynamic-header">
+    <i class="fas fa-leaf leaf-icon"></i>
+    <h2 class="widget-title gradient-text-green">SÁCH MỚI VỀ</h2>
+    <span class="sparkle-icon">✨</span>
+</div>
+            <div class="slider-wrapper" id="wrapper-newbooks"
+                onmouseenter="showArrows('newbooks')"
+                onmouseleave="hideArrows('newbooks')">
+            <button class="slider-btn slider-btn-left" id="btn-left-newbooks"
+                    onclick="slideLeft('newbooks')">‹</button>
+            <div class="product-slider" id="newbooks-slider">
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=sp2'">
+                <div class="product-badge">-15%</div>
+                <img src="../img/Nhan-Dan-Quyen-Luc-Va-Loi-Nhuan-Joseph-E-Stiglitz-NXB-Tri-Thuc.jpg" alt="Nhân dân quyền lực và lợi nhuận" class="product-image">
+                <h3 class="product-name">Nhân dân quyền lực và lợi nhuận</h3>
+                <div class="product-price">
+                    <span class="price-current">199.750đ</span>
+                    <span class="price-original">235.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=kh3'">
+                <div class="product-badge">-20%</div>
+                <img src="../img/1000 Bo-nao-ly-thuyet-moi-ve-tri-tue-con-nguoi.jpg" alt="1000 bộ não" class="product-image">
+                <h3 class="product-name">1000 bộ não – Lý thuyết mới về trí tuệ con người</h3>
+                <div class="product-price">
+                    <span class="price-current">320.000đ</span>
+                    <span class="price-original">400.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=kh5'">
+                <div class="product-badge">-15%</div>
+                <img src="../img/xay-dung-truong-hoc-hanh-phuc-con-duong-toi-di.jpg" alt="Xây dựng trường học hạnh phúc" class="product-image">
+                <h3 class="product-name">Xây dựng trường học hạnh phúc</h3>
+                <div class="product-price">
+                    <span class="price-current">187.000đ</span>
+                    <span class="price-original">220.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=kh2'">
+                <div class="product-badge">-20%</div>
+                <img src="../img/Triet-Hoc-Cua-Giao-Duc-Richard-Pring-NXB-Tri-Thuc.jpg" alt="Triết học của giáo dục" class="product-image">
+                <h3 class="product-name">Triết học của giáo dục</h3>
+                <div class="product-price">
+                    <span class="price-current">184.000đ</span>
+                    <span class="price-original">230.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=tl5'">
+                <div class="product-badge">-15%</div>
+                <img src="../img/Tu-duy-phan-bien-nhu-mot-luat-su.jpg" alt="Tư duy phản biện như một luật sư" class="product-image">
+                <h3 class="product-name">Tư duy phản biện như một luật sư</h3>
+                <div class="product-price">
+                    <span class="price-current">182.750đ</span>
+                    <span class="price-original">215.000đ</span>
+                </div>
+                </a>
+
+                <a class="product-card" onclick="location.href='product-detail.html?id=sp5'">
+                <div class="product-badge">-20%</div>
+                <img src="../img/Tinh-Than-Nghiep-Chu-Eamonn-Butler-NXB-Tri-Thuc.jpg" alt="Tinh thần nghiệp chủ" class="product-image">
+                <h3 class="product-name">Tinh Thần Nghiệp Chủ – Eamonn Butler</h3>
+                <div class="product-price">
+                    <span class="price-current">96.000đ</span>
+                    <span class="price-original">120.000đ</span>
+                </div>
+                </a>
+
+            </div>
+            <button class="slider-btn slider-btn-right" id="btn-right-newbooks"
+                    onclick="slideRight('newbooks')">›</button>
+            </div>
+        </div>
+        </section>
+        <section class="flash-sale-home container">
+    <div class="flash-header">
+        <div class="flash-left">
+            
+            <div class="dynamic-header">
+    <i class="fas fa-bolt fire-icon"></i>
+    <h2 class="gradient-text">FLASH SALE</h2>
+    <span class="sparkle-icon">✨</span>
+</div>
+
+            <div class="flash-countdown">
+    <span class="countdown-label">Kết thúc sau:</span>
+    <div class="countdown-timer">
+        <span class="time-box" id="hours">02</span>
+        <span class="colon">:</span>
+        <span class="time-box" id="minutes">10</span>
+        <span class="colon">:</span>
+        <span class="time-box" id="seconds">19</span>
+    </div>
+</div>
+
+        </div>
+        <a href="flashsale.html" class="view-all" style="font-weight: bold; color: #555;">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <div class="slider-wrapper flash-slider-wrapper" id="wrapper-flash">
+        
+        <button class="slider-btn slider-btn-left" id="btn-left-flash" onclick="slideLeft('flash')">‹</button>
+
+        <div class="flash-slider-container" style="overflow: hidden;">
+            <div class="flash-slider" id="flash-slider" style="display: flex; gap: 16px; transition: transform 0.4s ease-in-out;">
+                
+                <div class="product-card" onclick="location.href='product-detail.html?id=vh1'">
+                    <div class="product-badge">-30%</div>
+                    <img src="../img/Thu-cho-em.jpg" alt="Thư cho em" class="product-image">
+                    <h3 class="product-name">Thư cho em</h3>
+                    <div class="product-price">
+                        <span class="price-current">105.000đ</span>
+                        <span class="price-original">150.000đ</span>
+                    </div>
+                    <div class="flash-progress">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                        <span>Đã bán 25</span>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="location.href='product-detail.html?id=vh4'">
+                    <div class="product-badge">-30%</div>
+                    <img src="../img/Vui-ve-khong-quau-nha.jpg" alt="Vui vẻ không quạu nha" class="product-image">
+                    <h3 class="product-name">Vui vẻ không quạu nha</h3>
+                    <div class="product-price">
+                        <span class="price-current">84.000đ</span>
+                        <span class="price-original">120.000đ</span>
+                    </div>
+                    <div class="flash-progress">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                        <span>Đã bán 18</span>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="location.href='product-detail.html?id=sp1'">
+                    <div class="product-badge">-20%</div>
+                    <img src="../img/Combo-Toi-Uu-Loi-Nhuan-amp-Doanh-Thu-Profit-First-Dung-Ban-San-Pham-Hay-Ban-Giai-Phap.jpg" alt="Combo Profit First" class="product-image">
+                    <h3 class="product-name">Combo Profit First - Tối ưu lợi nhuận</h3>
+                    <div class="product-price">
+                        <span class="price-current">334.400đ</span>
+                        <span class="price-original">418.000đ</span>
+                    </div>
+                    <div class="flash-progress">
+                        <div class="progress-bar" style="width: 50%;"></div>
+                        <span>Đã bán 12</span>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="location.href='product-detail.html?id=kh3'">
+                    <div class="product-badge">-20%</div>
+                    <img src="../img/1000 Bo-nao-ly-thuyet-moi-ve-tri-tue-con-nguoi.jpg" alt="1000 bộ não" class="product-image">
+                    <h3 class="product-name">1000 bộ não - Lý thuyết mới về trí tuệ</h3>
+                    <div class="product-price">
+                        <span class="price-current">320.000đ</span>
+                        <span class="price-original">400.000đ</span>
+                    </div>
+                    <div class="flash-progress">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                        <span>Đã bán 45</span>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="location.href='product-detail.html?id=tl1'">
+                    <div class="product-badge">-20%</div>
+                    <img src="../img/Tu-duy-nhanh-va-cham.jpg" alt="Tư duy nhanh và chậm" class="product-image">
+                    <h3 class="product-name">Tư duy nhanh và chậm</h3>
+                    <div class="product-price">
+                        <span class="price-current">212.000đ</span>
+                        <span class="price-original">265.000đ</span>
+                    </div>
+                    <div class="flash-progress">
+                        <div class="progress-bar" style="width: 35%;"></div>
+                        <span>Đã bán 8</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="slider-btn slider-btn-right" id="btn-right-flash" onclick="slideRight('flash')">›</button>
+    </div>
+</section>
+        <section class="bxh-section container">
+    <div class="bxh-header-modern">
+        <div class="dynamic-header">
+    <i class="fas fa-crown leaf-icon"></i>
+    <h2 class="gradient-text-green">BẢNG XẾP HẠNG BÁN CHẠY TUẦN</h2>
+    <span class="sparkle-icon">✨</span>
+</div>
+    </div>
+    
+    <div class="bxh-container-box">
+        <div class="bxh-tabs">
+            <div class="bxh-tab active" data-tab="vanhoc">Văn Học</div>
+            <div class="bxh-tab" data-tab="kinhte">Kinh Tế - Tài Chính</div>
+            <div class="bxh-tab" data-tab="tamly">Tâm Lý - Tư Duy - Kỹ Năng</div>
+            <div class="bxh-tab" data-tab="khoahoc">Khoa Học - Giáo Dục</div>
+        </div>
+
+        <div class="bxh-body">
+            <div class="bxh-list" id="bxh-list-container">
+                </div>
+
+            <div class="bxh-detail" id="bxh-detail-container">
+                </div>
+        </div>
+    </div>
+</section>
+        <div id="adPopup" class="popup-overlay">
+            <div class="popup-container">
+                <span class="popup-close-btn" onclick="closePopup()">×</span>
+                
+                <a href="flashsale.html">
+                    <img src="../img/popup.jpg" alt="Khuyến mãi Flashsale" class="popup-image">
+                </a>
+            </div>
+        </div>
+
+        <div id="intro-loader" class="intro-vip-premium">
+            <div class="intro-bg-deep"></div>
+
+            <div class="side-flow left-flow">
+                <span class="fp p1"></span><span class="fp p2"></span><span class="fp p3"></span><span class="fp p4"></span><span class="fp p5"></span>
+                <i class="fas fa-book fi f1"></i>
+                <i class="fas fa-star fi f2"></i>
+                <i class="fas fa-feather-alt fi f3"></i>
+                <i class="fas fa-heart fi f4"></i>
+                <i class="fas fa-pencil-alt fi f5"></i>
+            </div>
+            
+            <div class="side-flow right-flow">
+                <span class="fp p6"></span><span class="fp p7"></span><span class="fp p8"></span><span class="fp p9"></span><span class="fp p10"></span>
+                <i class="fas fa-book-open fi f6"></i>
+                <i class="fas fa-lightbulb fi f7"></i>
+                <i class="fas fa-magic fi f8"></i>
+                <i class="fas fa-star fi f9"></i>
+                <i class="fas fa-bookmark fi f10"></i>
+            </div>
+
+            <div class="center-universe">
+                <div class="vortex-orbit">
+                    <div class="vo-ring vo-1"><i class="fas fa-book"></i><i class="fas fa-star"></i></div>
+                    <div class="vo-ring vo-2"><i class="fas fa-heart"></i><i class="fas fa-lightbulb"></i></div>
+                    <div class="vo-ring vo-3"><i class="fas fa-feather-alt"></i><i class="fas fa-pencil-alt"></i></div>
+                </div>
+
+                <div class="orbit-sphere">
+                    <div class="orbit-ring axis-x"></div>
+                    <div class="orbit-ring axis-y"></div>
+                    <div class="orbit-ring axis-z"></div>
+                    <div class="orbit-ring axis-xy"></div>
+                </div>
+
+                <div class="intro-logo-core">
+                    <div class="core-glow"></div>
+                    <img src="../img/logo1.jpg" alt="Gác Xen" class="core-img">
+                </div>
+            </div>
+
+            <div class="intro-footer-vip">
+                <h1 class="slogan-vip">GÁC XEN</h1>
+                <p class="sub-slogan-vip">Đang kết nối vũ trụ tri thức...</p>
+                <div class="progress-wrapper-vip">
+                    <div class="progress-track">
+                        <div id="load-fill-vip" class="progress-fill">
+                            <div class="progress-glow"></div> 
+                        </div>
+                    </div>
+                    <div id="load-count-vip" class="progress-text">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lienhe-container">
+            <div class="lienhe-group">
+                <a href="javascript:void(0)" onclick="toggleChatbot()" class="lienhe-item">
+                    <span>Chat AI</span>
+                    <div class="icon-circle" style="background-color: #ffffff !important;">
+                        <i class="fa-solid fa-robot" style="color: #ff4d6d !important;"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr" class="lienhe-item">
+                    <span>Facebook</span>
+                    <div class="icon-circle"><i class="fa-brands fa-facebook"></i></div>
+                </a>
+                <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr" class="lienhe-item">
+                    <span>Instagram</span>
+                    <div class="icon-circle">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="tel:0377953921" class="lienhe-item">
+                    <span>Hotline</span>
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                </a>
+            </div>
+
+            <div class="main-lienhe-icon">
+                <img src="../img/lienhe.jpg" alt="cat-icon">
+            </div>
+
+            <div id="gacxen-chatbot" class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> Mao Mao </h3>
+                    <button onclick="toggleChatbot()" class="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot-msg">
+                        <div class="msg-bubble">Meow! Mình là trợ lý AI của Gác Xen. Mình có thể giúp gì cho bạn? 🐾</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." onkeypress="handleChatEnter(event)">
+                    <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+<div id="google_translate_element" style="display:none;"></div>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </main>
+
+    <footer class="footer">
+        <div class="newsletter-section">
+            <div class="container newsletter-inner">
+                <div class="newsletter-title">
+                    <i class="far fa-envelope-open"></i> ĐĂNG KÝ NHẬN BẢN TIN
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Nhập địa chỉ email của bạn...">
+                    <button class="btn-subscribe" id="btnSubscribe">Đăng ký</button>
+                    <button class="btn-unsubscribe" id="btnUnsubscribe">Hủy đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-content-wrapper">
+            <div class="footer-left">
+                <a href="homepage.html"><img src="../img/logo1.jpg" alt="Logo Shop Sách" class="footer-logo"></a>
+                <p>12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</p>
+                <p>Công Ty TNHH Gác Xen</p>
+                <p>Gác Xen nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
+                <img src="../img/dathongbao.jpg" alt="Logo bộ công thương" class="footer-logo">
+                
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pt2GXtrQT/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gac_xen?igsh=NnM2a3JvbW8zOTdk&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tuisokiuu_3?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                
+                <div class="footer-menus">
+                    <div class="footer-col">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="category-tatcasanpham.html?category=kinhte">Tủ sách kinh tế - tài chính</a></li>
+                            <li><a href="category-tatcasanpham.html?category=vanhoc">Tủ sách văn học</a></li>
+                            <li><a href="category-tatcasanpham.html?category=tamly">Tủ sách tâm lý - tư duy và kỹ năng</a></li>
+                            <li><a href="category-tatcasanpham.html?category=khoahoc">Tủ sách khoa học - giáo dục</a></li>
+                            <li><a href="flashsale.html">Flashsale</a></li>
+                            <li><a href="gioithieu.html">Giới thiệu</a></li>
+                            <li><a href="lienhe.html">Liên hệ</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Chính sách hỗ trợ</h4>
+                        <ul>
+                            <li><a href="gioithieu.html?policy=giaonhan">Thông tin vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=doitra">Chính sách đổi - trả - hoàn tiền</a></li>
+                            <li><a href="gioithieu.html?policy=baohanh">Chính sách bảo hành - bồi hoàn</a></li>
+                            <li><a href="gioithieu.html?policy=vanchuyen">Chính sách vận chuyển</a></li>
+                            <li><a href="gioithieu.html?policy=baomat">Chính sách bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Tài khoản của tôi</h4>
+                        <ul>
+                            <li><a href="dangnhap.html">Đăng nhập/Tạo mới tài khoản</a></li>
+                            <li><a href="taikhoan.html">Chi tiết tài khoản</a></li>
+                            <li><a href="giohang.html">Giỏ hàng của tôi</a></li>
+                            <li><a href="yeuthich.html">Danh sách yêu thích của tôi</a></li>
+                            <li><a href="donhang.html">Lịch sử mua hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col-new">
+                        <h4 class="pink-heading">Thông tin liên hệ</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span><a href="https://maps.app.goo.gl/1B5HR1rLtcE8mr8X8">12 Nguyễn Văn Bảo, Gò Vấp, TP. HCM</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i> 
+                                <span><a href="tel:0377953921">0377953921</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i> 
+                                <span><a href="mailto:gacxen.xinchao@gmail.com">gacxen.xinchao@gmail.com</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="payment-shipping-logos">
+                    <div class="logo-row row-top">
+                        <img src="../img/ghtk.jpg" alt="Giao Hàng Tiết Kiệm">
+                        <img src="../img/ghn.jpg" alt="Giao Hàng Nhanh">
+                        <img src="../img/vnp.jpg" alt="VNPost">
+                    </div>
+                    <div class="logo-row row-bottom">
+                        <img src="../img/vnpay.jpg" alt="VNPAY">
+                        <img src="../img/momo.jpg" alt="MoMo">
+                        <img src="../img/shopeepay.jpg" alt="ShopeePay">
+                        <img src="../img/zalopay.jpg" alt="ZaloPay">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
